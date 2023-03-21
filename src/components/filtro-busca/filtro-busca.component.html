@@ -3,37 +3,31 @@
   <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Encontre o melhor quarto mais próximo de você</h1>
   <div class="grid grid-cols-3 gap-3">
 
+      <div class="m-10 mb-1">
+        <input type="text"
+        placeholder="Estado"
+        [formControl]="formEstado"
+        class="bg-gray-50 border-2 border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+          <mat-option class="m-10 mt-0" *ngFor="let estado of filtroEstado | async" [value]="estado">
+            {{estado}}
+          </mat-option>
+        </mat-autocomplete> -->
+      </div>
 
-          <div class="m-10 mb-1">
-            <input type="text"
-            placeholder="Estado"
-            [formControl]="formEstado"
-            [matAutocomplete]="auto"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option class="m-10 mt-0" *ngFor="let estado of filtroEstado | async" [value]="estado">
-                {{estado}}
-              </mat-option>
-            </mat-autocomplete>
-          </div>
+      <div class="m-10 mb-1">
+        <input type="text"
+        placeholder="Cidade"
+        [formControl]="formCidade"
+        class="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      </div>
 
-
-
-        <div class="m-10 mb-1">
-          <input type="text"
-          placeholder="Cidade"
-          [formControl]="formCidade"
-          [matAutocomplete]="auto"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option class="m-10 mt-0" *ngFor="let cidade of filtroCidade | async" [value]="cidade">
-              {{cidade}}
-            </mat-option>
-          </mat-autocomplete>
-        </div>
- 
+      <div class="m-10 mb-1">
+        <button class="group rounded-2xl h-12 w-48 bg-green-500 font-bold text-lg text-white relative overflow-hidden">
+          Pesquisar
+      </button>
+      </div>
 
   </div>
-
 
 </div>

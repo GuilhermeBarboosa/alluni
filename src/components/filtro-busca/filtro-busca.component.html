@@ -1,0 +1,24 @@
+
+<div class="text-center">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Encontre o melhor quarto mais próximo de você</h1>
+
+
+
+  <div class="grid grid-cols-3 gap-3">
+
+  <form class="example-form">
+      <input type="text"
+            placeholder="Search for a street"
+            [formControl]="control"
+            [matAutocomplete]="auto"
+            class="example-input">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+          {{street}}
+        </mat-option>
+      </mat-autocomplete>
+  </form>
+  </div>
+
+
+</div>

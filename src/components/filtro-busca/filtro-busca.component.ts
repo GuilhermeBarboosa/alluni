@@ -9,20 +9,36 @@ import {startWith, map} from 'rxjs/operators';
   styleUrls: ['./filtro-busca.component.css']
 })
 export class FiltroBuscaComponent implements OnInit {
-  control = new FormControl('');
-  streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
-  filteredStreets: Observable<string[]> | undefined;
+  formEstado = new FormControl('');
+  estado: string[] = ['Minas', 'São Paulo', 'Santa Catarina', 'Fifth Avenue'];
+  filtroEstado: Observable<string[]> | undefined;
+
+  formCidade = new FormControl('');
+  cidade: string[] = ['Teste', 'AAAA', 'Testando...', 'Fifth Avenue'];
+  filtroCidade: Observable<string[]> | undefined;
 
   ngOnInit() {
-    this.filteredStreets = this.control.valueChanges.pipe(
+
+    this.filtroCidade = this.formCidade.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value || '')),
+      map(value => this._filter(value || '', 2)),
     );
+
+    this.filtroEstado = this.formEstado.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '', 1)),
+    );
+
   }
 
-  private _filter(value: string): string[] {
+  private _filter(value: string, tipo: number): string[] {
     const filterValue = this._normalizeValue(value);
-    return this.streets.filter(street => this._normalizeValue(street).includes(filterValue));
+
+    if(tipo == 1){
+      return this.estado.filter(estado => this._normalizeValue(estado).includes(filterValue));
+    }else{
+      return this.cidade.filter(cidade => this._normalizeValue(cidade).includes(filterValue));
+    }
   }
 
   private _normalizeValue(value: string): string {

@@ -5,3 +5,8 @@
 .text-green{
   color: #04D361;
 }
+
+.focus-green:focus{
+  border-color: #04D361 !important;
+}
+

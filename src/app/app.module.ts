@@ -1,3 +1,4 @@
+import { SidebarFiltrosComponent } from './../shared/sidebar-filtros/sidebar-filtros.component';
 import { CardResidenciaComponent } from './../shared/card-residencia/card-residencia.component';
 import { CommonModule } from '@angular/common';
 import { FiltroBuscaComponent } from './../components/filtro-busca/filtro-busca.component';
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     NavbarComponent,
     FiltroBuscaComponent,
-    CardResidenciaComponent
+    CardResidenciaComponent,
+    SidebarFiltrosComponent
   ],
   imports: [
     BrowserModule,

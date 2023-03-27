@@ -1,0 +1,17 @@
+.login-form {
+  background-color: #d9d9d9;
+}
+
+.wrapper-Input-requiredField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.requiredField {
+  margin-left: 40px;
+}
+
+.input-group-append .input-group-text svg {
+  cursor: pointer;
+}

@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FiltroBuscaComponent],
@@ -33,6 +34,7 @@ import { Approutes } from './app-routing.module';
     MatDialogModule,
     MatAutocompleteModule,
     RouterModule.forRoot(Approutes),
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

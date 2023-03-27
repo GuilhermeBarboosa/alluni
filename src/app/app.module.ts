@@ -7,6 +7,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
     NavbarComponent,
     FiltroBuscaComponent,
@@ -43,6 +44,7 @@ import { FaqComponent } from './faq/faq.component';
     MatCardModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatIconModule,
     MatAutocompleteModule,
     RouterModule.forRoot(Approutes),
   ],

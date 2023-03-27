@@ -18,15 +18,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     NavbarComponent,
     FiltroBuscaComponent,
     CardResidenciaComponent,
-    SidebarFiltrosComponent
-  ],
+    SidebarFiltrosComponent,
+      HomeComponent,
+      FaqComponent
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

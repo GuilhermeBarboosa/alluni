@@ -16,6 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SobreComponent } from '../info/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     FiltroBuscaComponent,
     CardResidenciaComponent,
-    SidebarFiltrosComponent
+    SidebarFiltrosComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

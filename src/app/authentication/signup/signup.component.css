@@ -1,0 +1,28 @@
+.signup-img {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-img img {
+  width: 300px;
+}
+
+.signup-content {
+  background-color: #d9d9d9;
+}
+
+.signup-content p {
+  text-align: center;
+  font-size: 40px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.spinner-border {
+  width: 18px;
+  height: 18px;
+  font-size: 8px;
+}

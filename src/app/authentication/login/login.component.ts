@@ -35,7 +35,7 @@ export class LoginComponent {
   }
 
   goToSignUp() {
-    this.router.navigateByUrl('/authentication/signup', {
+    this.router.navigateByUrl('/signup', {
       skipLocationChange: false,
     });
   }

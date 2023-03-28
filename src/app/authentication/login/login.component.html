@@ -1,48 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8">
+    <div class="col-6">
       <div class="login-img">
         <img src="../../../assets/logo.png" alt="Logo Alluni" />
       </div>
     </div>
-    <div class="col-4 login-content">
+    <div class="col-6 login-content">
       <div class="login-form-wrapper">
         <p>Bem Vindo</p>
-
-        <!--         <form action="" class="login-form">
-          <div class="wrapper-input-required-field">
-            <div class="input-group">
-              <div class="input-group-prepend"></div>
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                aria-label="Email"
-                aria-describedby="basic-addon1"
-                formControlName="email"
-              />
-            </div>
-            <div class="requiredField text-danger">
-              <small>Campo obrigatório</small>
-            </div>
-          </div>
-          <div class="wrapper-input-required-field">
-            <div class="input-group">
-              <div class="input-group-prepend"></div>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Email"
-                aria-label="Email"
-                aria-describedby="basic-addon1"
-                formControlName="email"
-              />
-            </div>
-            <div class="requiredField text-danger">
-              <small>Campo obrigatório</small>
-            </div>
-          </div>
-        </form> -->
 
         <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
           <mat-form-field class="example-full-width">
@@ -77,11 +42,7 @@
 
           <div class="recoverPassLink">
             Não possui uma conta?
-            <a
-              (click)="goToSignUp()"
-              href="javascript:void(0)"
-              id="to-recover"
-              class="text-dark font-14 ml-auto"
+            <a (click)="goToSignUp()" href="javascript:void(0)" id="to-recover"
               ><b>Registrar</b></a
             >
           </div>

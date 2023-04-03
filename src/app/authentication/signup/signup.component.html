@@ -1,16 +1,16 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <div class="signup-img">
+  <div class="row wrapper-logo-form">
+    <div class="col-6 signup-img">
+      <div >
         <img src="../../../assets/logo.png" alt="Logo Alluni" />
       </div>
     </div>
     <div class="col-6 signup-content">
-      <div class="login-form-wrapper">
+      <div class="signup-form-wrapper">
         <p>Cadastre sua conta</p>
 
-        <div>
-          Se você já possuir uma conta
+        <div class="login-link">
+          Se você já possuir uma conta,
           <a (click)="goToLogin()" href="javascript:void(0)" id="to-recover"
             ><b>Logue aqui!</b></a
           >
@@ -62,12 +62,14 @@
             </mat-error>
           </mat-form-field>
 
+          <div class="form-button">
           <button mat-raised-button color="primary">
             <ng-container *ngIf="!loading">Cadastrar</ng-container>
             <div *ngIf="loading" class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </button>
+        </div>
         </form>
       </div>
     </div>

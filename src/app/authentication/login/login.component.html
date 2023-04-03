@@ -1,13 +1,13 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <div class="login-img">
+  <div class="row wrapper-logo-form">
+    <div class="col-6 login-img">
+      <div>
         <img src="../../../assets/logo.png" alt="Logo Alluni" />
       </div>
     </div>
     <div class="col-6 login-content">
       <div class="login-form-wrapper">
-        <p>Bem Vindo</p>
+        <p>Bem-vindo</p>
 
         <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
           <mat-form-field class="example-full-width">
@@ -40,20 +40,34 @@
             </mat-error>
           </mat-form-field>
 
-          <div class="recoverPassLink">
-            Não possui uma conta?
-            <a (click)="goToSignUp()" href="javascript:void(0)" id="to-recover"
-              ><b>Registrar</b></a
-            >
-          </div>
-
+          <div class="form-button">
           <button mat-raised-button color="primary">
-            <ng-container *ngIf="!loading">Entrar</ng-container>
+            <ng-container *ngIf="!loading">Login</ng-container>
             <div *ngIf="loading" class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
           </button>
+        </div>
         </form>
+
+        <div class="register-link">
+          Não possui uma conta?
+          <a (click)="goToSignUp()" href="javascript:void(0)" id="to-recover"
+            ><b>Registrar</b></a
+          >
+        </div>
+
+        <div class="wrapper-text-line">
+          <div class="line"></div>
+          <div class="text">Ou entre com</div>
+          <div class="line"></div>
+        </div>
+        <div class="wrapper-google-login">
+        <button mat-button class="google-login-button">
+          <mat-icon 
+                    svgIcon="logo"></mat-icon>Google
+          </button>  
+        </div>
       </div>
     </div>
   </div>

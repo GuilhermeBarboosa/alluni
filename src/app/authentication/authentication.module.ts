@@ -12,6 +12,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignupComponent } from './signup/signup.component';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from "@angular/common/http";
+
+
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
@@ -27,6 +31,8 @@ import { SignupComponent } from './signup/signup.component';
     MatDialogModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    HttpClientModule
   ],
 })
 export class AuthenticationModule {}

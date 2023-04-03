@@ -32,13 +32,15 @@ export class SignupComponent {
   }
 
   signup() {
+    this.loading = true;
     if (this.signupForm.valid) {
-      this.loading = true;
-      console.log('fez login');
+      this.loading = false;
+      alert('signup com sucesso')
+      
     } else {
       this.signupForm.markAllAsTouched();
       this.loading = false;
-      console.log('login falhou');
+      alert('signup falhou')
     }
   }
 }

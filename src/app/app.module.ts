@@ -13,7 +13,7 @@ import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,9 @@ import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.compo
     MatIconModule,
     MatAutocompleteModule,
     RouterModule.forRoot(Approutes),
+    MatProgressSpinnerModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

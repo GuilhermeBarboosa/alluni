@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ .title-ul{
+  font-size: large;
+}
+
+.text-li{
+ font-size: medium;
+ text-align: justify;
+}

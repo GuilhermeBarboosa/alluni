@@ -1,27 +1,27 @@
+import { SidebarFiltrosComponent } from './../shared/sidebar-filtros/sidebar-filtros.component';
+import { CardResidenciaComponent } from './../shared/card-residencia/card-residencia.component';
 import { CommonModule } from '@angular/common';
-import { FiltroBuscaComponent } from './../components/filtro-busca/filtro-busca.component';
 import { NavbarComponent } from './../shared/navbar/navbar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FiltroBuscaComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -34,11 +34,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatIconModule,
     MatAutocompleteModule,
     RouterModule.forRoot(Approutes),
     MatProgressSpinnerModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

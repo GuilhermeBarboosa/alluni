@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-filtros{
+  background-color: #5F2EEA;
+}
+
+.bg-green-df{
+  background-color: #04D361;
+}

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mb-zero{
+  margin-bottom: 0;
+}
+
+.text-green{
+  color: #04D361;
+}

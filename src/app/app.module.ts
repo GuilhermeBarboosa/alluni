@@ -19,9 +19,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HomeComponent } from './components/home/home.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    FaqComponent,
+    NavbarComponent,
+    CardResidenciaComponent,
+    SidebarFiltrosComponent,
+    FiltroBuscaComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

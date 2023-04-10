@@ -21,16 +21,18 @@ import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FaqComponent } from './faq/faq.component';
+import { AnunciarComponent } from './anunciar/anunciar.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NavbarComponent,
     FiltroBuscaComponent,
     CardResidenciaComponent,
     SidebarFiltrosComponent,
       HomeComponent,
-      FaqComponent
+      FaqComponent,
+      AnunciarComponent
    ],
   imports: [
     BrowserModule,

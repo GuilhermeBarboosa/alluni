@@ -1,7 +1,6 @@
 import { SidebarFiltrosComponent } from './../shared/sidebar-filtros/sidebar-filtros.component';
 import { CardResidenciaComponent } from './../shared/card-residencia/card-residencia.component';
 import { CommonModule } from '@angular/common';
-import { FiltroBuscaComponent } from './../components/filtro-busca/filtro-busca.component';
 import { NavbarComponent } from './../shared/navbar/navbar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
@@ -23,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
 
 @NgModule({
   declarations: [

@@ -8,23 +8,23 @@ import { AnunciarComponent } from '../anunciar/anunciar.component';
 export const AuthenticationRoutes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'anunciar',
-        component: AnunciarComponent,
-      },
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'faq',
-        component: FaqComponent
-      }
-    ],
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'anunciar',
+    component: AnunciarComponent,
   },
 ];

@@ -4,7 +4,7 @@ export const Approutes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./authentication/authentication.module').then(
+      import('./components/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
   },

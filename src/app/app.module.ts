@@ -19,12 +19,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { FaqComponent } from './faq/faq.component';
-import { AnunciarComponent } from './anunciar/anunciar.component';
+import { HomeComponent } from './components/home/home.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { AnunciarComponent } from './components/anunciar/anunciar.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     NavbarComponent,
     FiltroBuscaComponent,
@@ -32,7 +33,8 @@ import { AnunciarComponent } from './anunciar/anunciar.component';
     SidebarFiltrosComponent,
       HomeComponent,
       FaqComponent,
-      AnunciarComponent
+      AnunciarComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule,

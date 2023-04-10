@@ -23,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
+import { SobreComponent } from './components/sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AnunciarComponent } from './components/anunciar/anunciar.component';
     CardResidenciaComponent,
     SidebarFiltrosComponent,
     FiltroBuscaComponent,
-    AnunciarComponent
+    AnunciarComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,10 @@ export const Approutes: Routes = [
     component: AnunciarComponent
   },
   {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
     path: 'authentication',
     loadChildren: () =>
       import('./authentication/authentication.module').then(

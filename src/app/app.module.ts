@@ -24,6 +24,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
+import { FooterComponent } from 'src/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SobreComponent } from './components/sobre/sobre.component';
     SidebarFiltrosComponent,
     FiltroBuscaComponent,
     AnunciarComponent,
-    SobreComponent
+    SobreComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

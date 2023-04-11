@@ -8,20 +8,20 @@
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Insira valor</label>
 
             <div class="flex">
-              <input type="number" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" min="100">
+              <input type="number" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" min="100">
               <p class="flex items-center justify-center p-2 text-md font-medium text-white"> até </p>
-              <input type="number" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" min="100">
+              <input type="number" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" min="100">
             </div>
 
           </div>
           <div class="my-5">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Comodidade</label>
             <div class="flex items-center mb-2">
-              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">Wifi</label>
             </div>
             <div class="flex items-center mb-2">
-              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="checked-checkbox" class="ml-2 text-sm font-medium text-white ">Ar condicionado</label>
             </div>
 
@@ -29,24 +29,44 @@
           <div class="my-5">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Serviços</label>
             <div class="flex items-center mb-2">
-              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">Manutenção</label>
             </div>
             <div class="flex items-center mb-2">
-              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="checked-checkbox" class="ml-2 text-sm font-medium text-white ">Limpeza</label>
             </div>
 
           </div>
-          <div class="mt-5">
-            <label for="first_name" class="block mb-2 text-sm font-medium text-white">Quantidade de banheiros</label>
-            <input type="number" id="qtdBanheiro" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" min="1">
+
+          <div class="my-5">
+            <label for="first_name" class="block mb-2 text-sm font-medium text-white">Regras</label>
+
+            <div>
+              <label for="first_name" class="block mb-2 text-sm font-medium text-white">Fumantes</label>
+              <div class="flex items-center mb-2">
+                <input id="fumar" type="radio" value="true" name="fumar" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+                <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Sim</label>
+
+                <input id="fumar" type="radio" value="false" name="fumar" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
+                <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Não</label>
+              </div>
+            </div>
+
+            <div>
+              <label for="first_name" class="block mb-2 text-sm font-medium text-white">Crianças</label>
+
+              <div class="flex items-center mb-2">
+                  <input id="criancas" type="radio" value="true" name="criancas" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+                  <label for="criancas" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Sim</label>
+
+                  <input id="criancas" type="radio" value="false" name="criancas" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
+                  <label for="criancas" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Não</label>
+              </div>
+            </div>
+
           </div>
 
-          <div class="mt-2">
-              <label for="first_name" class="block mb-2 text-sm font-medium text-white">Quantidade de pessoas</label>
-              <input type="number" id="qtdPessoas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" min="1">
-          </div>
       </div>
       <button type="submit" style="width: 100%;" class="text-white bg-green-df focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Pesquisar</button>
   </form>

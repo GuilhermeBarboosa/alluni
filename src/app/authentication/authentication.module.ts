@@ -18,7 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
-  declarations: [SignupComponent],
+  declarations: [LoginComponent, SignupComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),

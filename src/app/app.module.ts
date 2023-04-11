@@ -6,37 +6,35 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Approutes } from './app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
-import { AnunciarComponent } from './components/anunciar/anunciar.component';
-import { LoginComponent } from './components/authentication/login/login.component';
 import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AnunciarComponent } from './components/anunciar/anunciar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    FaqComponent,
     NavbarComponent,
-    FiltroBuscaComponent,
     CardResidenciaComponent,
     SidebarFiltrosComponent,
-      HomeComponent,
-      FaqComponent,
-      AnunciarComponent,
-      LoginComponent
-   ],
+    FiltroBuscaComponent,
+    AnunciarComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -54,7 +52,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     RouterModule.forRoot(Approutes),
     MatProgressSpinnerModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

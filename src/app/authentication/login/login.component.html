@@ -50,10 +50,9 @@
         </div>
         </form>
 
-        <div class="register-link">
+        <div  class="register-link">
           Não possui uma conta?
-          <a (click)="goToSignUp()" href="javascript:void(0)" id="to-recover"
-            ><b>Registrar</b></a
+          <a routerLink="/authentication/signup" routerLinkActive="active"><b>Registrar</b></a
           >
         </div>
 
@@ -64,9 +63,9 @@
         </div>
         <div class="wrapper-google-login">
         <button mat-button class="google-login-button">
-          <mat-icon 
+          <mat-icon
                     svgIcon="logo"></mat-icon>Google
-          </button>  
+          </button>
         </div>
       </div>
     </div>

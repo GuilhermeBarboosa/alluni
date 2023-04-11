@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -36,7 +35,7 @@ export class SignupComponent {
     if (this.signupForm.valid) {
       this.loading = false;
       alert('signup com sucesso')
-      
+
     } else {
       this.signupForm.markAllAsTouched();
       this.loading = false;

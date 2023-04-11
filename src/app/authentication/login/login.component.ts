@@ -15,7 +15,7 @@ import { MatIconRegistry } from "@angular/material/icon";
 export class LoginComponent {
   loginForm: FormGroup = Object.create(null);
   loading: boolean = false;
-  googleLogoURL = 
+  googleLogoURL =
 "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
 
   constructor(private router: Router,private matIconRegistry: MatIconRegistry,

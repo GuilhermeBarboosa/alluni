@@ -1,0 +1,34 @@
+.box-preco h4{
+    margin: 5px 0px;
+    padding: 10px 20px;
+    color: #F4F4F4;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #5F2EEA;
+}
+
+.box-informacoes {
+    padding: 30px 0px;
+}
+
+.title-informacoes {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: #5F2EEA;
+}
+
+.card-informacoes {
+    padding: 20px;
+    background-color: #F4F4F4;
+}
+
+.list-informacoes {
+    list-style-type: disc;
+}
+
+#btn-mapa {
+    border-radius: 5px;
+    background-color: #5F2EEA;
+}

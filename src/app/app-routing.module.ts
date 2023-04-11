@@ -18,6 +18,10 @@ export const Approutes: Routes = [
     component: AnunciarComponent
   },
   {
+    path: 'sobre',
+    component: SobreComponent,
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },

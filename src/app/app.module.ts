@@ -5,13 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
-import { NavbarComponent } from 'src/shared/navbar/navbar.component';
-import { CardResidenciaComponent } from 'src/shared/card-residencia/card-residencia.component';
-import { SidebarFiltrosComponent } from 'src/shared/sidebar-filtros/sidebar-filtros.component';
-import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { CardResidenciaComponent } from '../shared/card-residencia/card-residencia.component';
+import { SidebarFiltrosComponent } from '../shared/sidebar-filtros/sidebar-filtros.component';
+import { FiltroBuscaComponent } from '../shared/filtro-busca/filtro-busca.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
-import { FooterComponent } from 'src/shared/footer/footer.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -25,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { Approutes } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { InformacaoComponent } from './components/informacao/informacao.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     FiltroBuscaComponent,
     AnunciarComponent,
     SobreComponent,
-    FooterComponent
+    FooterComponent,
+    InformacaoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,61 +1,62 @@
- <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-
-    <div class="h-full w-full">
-      <div class="grid full-height">
-        <a class="m-auto" routerLink="/home" routerLinkActive="active">
-          <img  src="../../../assets/logo.png" alt="Logo Alluni" />
-        </a>
-      </div>
+<div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+  <div class="h-full w-full">
+    <div class="grid full-height">
+      <a class="m-auto" routerLink="/home" routerLinkActive="active">
+        <img src="../../../assets/logo.png" alt="Logo Alluni" />
+      </a>
     </div>
+  </div>
 
-    <div class="h-full w-full">
-      <div class="grid full-height bg-gray-300">
-        <div class="m-auto block text-center">
+  <div class="h-full w-full">
+    <div class="grid full-height bg-gray-300">
+      <div class="m-auto block text-center">
+        <p class="text-3xl text-black">Bem-vindo</p>
 
-          <p class="text-3xl text-black">Bem-vindo</p>
+        <form class="" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div>
+            <mat-form-field class="">
+              <mat-label>Email</mat-label>
 
-          <form class="" [formGroup]="loginForm" (ngSubmit)="login()">
+              <input
+                class="rounded bg-white"
+                type="email"
+                matInput
+                formControlName="email"
+                placeholder="seuemail@exemplo.com"
+              />
 
-            <div>
-              <mat-form-field class="">
-                <mat-label>Email</mat-label>
+              <mat-error
+                *ngIf="
+                  loginForm?.get('email')?.hasError('email') &&
+                  !loginForm?.get('email')?.hasError('required')
+                "
+              >
+                Informe um email válido
+              </mat-error>
+              <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
+                <strong>Obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-                <input
-                  class="rounded bg-white"
-                  type="email"
-                  matInput
-                  formControlName="email"
-                  placeholder="seuemail@exemplo.com"
-                />
+          <div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput formControlName="password" />
 
-                <mat-error
-                  *ngIf="
-                    loginForm?.get('email')?.hasError('email') &&
-                    !loginForm?.get('email')?.hasError('required')
-                  "
-                >
-                  Informe um email válido
-                </mat-error>
-                <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
-                  <strong>Obrigatório</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
+              <mat-error
+                *ngIf="loginForm?.get('password')?.hasError('required')"
+              >
+                <strong>Obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-            <div>
-              <mat-form-field class="example-full-width">
-                <mat-label>Senha</mat-label>
-                <input type="password" matInput formControlName="password" />
-
-                <mat-error *ngIf="loginForm?.get('password')?.hasError('required')">
-                  <strong>Obrigatório</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
-
-
-            <div class="form-button">
-            <button  class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Entrar
+          <div class="form-button">
+            <button
+              class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            >
+              Entrar
               <!-- mat-raised-button -->
               <!-- <ng-container *ngIf="!loading">Login</ng-container>
               <div *ngIf="loading" class="spinner-border" role="status">
@@ -63,26 +64,24 @@
               </div> -->
             </button>
           </div>
-          </form>
+        </form>
 
-          <div  class="flex mt-2">
-            <p class="text-md pr-2 font-semibold">Não possui uma conta? </p>
-            <a routerLink="/authentication/signup" routerLinkActive="active" ><b class="text-green-500">Registrar</b></a
-            >
-          </div>
+        <div class="flex mt-2">
+          <p class="text-md pr-2 font-semibold">Não possui uma conta?</p>
+          <a routerLink="/authentication/signup" routerLinkActive="active"
+            ><b class="text-green-500">Registrar</b></a
+          >
+        </div>
 
-          <div class="">
-            <div class="font-semibold">Ou entre com</div>
-          </div>
-          <div class="bg-gray-200 rounded-lg m-5">
+        <div class="">
+          <div class="font-semibold">Ou entre com</div>
+        </div>
+        <div class="bg-gray-200 rounded-lg m-5">
           <button mat-button class="google-login-button">
-            <mat-icon
-                      svgIcon="logo"></mat-icon>Google
-            </button>
-          </div>
-
-      </div>
+            <mat-icon svgIcon="logo"></mat-icon>Google
+          </button>
+        </div>
       </div>
     </div>
-
- </div>
+  </div>
+</div>

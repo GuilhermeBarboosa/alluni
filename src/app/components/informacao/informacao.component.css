@@ -32,3 +32,13 @@
     border-radius: 5px;
     background-color: #5F2EEA;
 }
+
+#card-contato {
+    color: #fff;
+    border-radius: 10px;
+    background-color: #5F2EEA;
+}
+
+.mr-16 {
+    margin-right: 4rem;
+}

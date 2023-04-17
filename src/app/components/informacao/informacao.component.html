@@ -1,119 +1,167 @@
 <div>
     <app-navbar></app-navbar>
-  </div>
-  
-  
-  <div class="lg:mx-20 md:mx-5 sm:mx-10 mx-5 flex justify-center container mx-auto">
-    <div>
-        
-    </div>
-    <div>
-      <div class="my-10">
+</div>
+
+
+<div class="lg:mx-20 md:mx-5 sm:mx-10 mx-5 teste">
+    <div class="my-10 flex flex-column justify-center">
         <div>
             <h2 id="titulo">Lindo apartamento no Penthouse em Alphaville</h2>
             <h3 id="publicacao">Publicado em 03/04 às 19:11</h3>
         </div>
-        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
-          <!-- Carousel wrapper -->
-          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-              <!-- Item 1 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                  <img src="../../../assets/apartamento-design.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-              </div>
-              <!-- Item 2 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <img src="../../../assets/apartamento-design.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-              </div>
-              <!-- Item 3 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <img src="../../../assets/apartamento-design.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-              </div>
-          </div>
-          <!-- Slider indicators -->
-          <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-              <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-              <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-              <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-              <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-              <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-          </div>
-          <!-- Slider controls -->
-          <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                  <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                  <span class="sr-only">Previous</span>
-              </span>
-          </button>
-          <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                  <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                  <span class="sr-only">Next</span>
-              </span>
-          </button>
-        </div>
-        <div class="box-preco flex justify-end">
-          <h4>$900</h4>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Localização:</h3>
-          <div class="card-informacoes">
-            <h4 id="cep">Cep: <span>numero cep</span></h4>
-            <h4 id="logradouro">Logradouro: <span>logradouro</span></h4>
-            <h4 id="municipio">Município: <span>município</span></h4>
-            <h4 id="bairro">Bairro: <span>bairro</span></h4>
-          </div>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Descrição</h3>
-          <div class="card-informacoes">
-            <ul class="list-informacoes">
-              <li>Descrição 1</li>
-              <li>Descrição 2</li>
-              <li>Descrição 3</li>
-              <li>Descrição 4</li>
-              <li>Descrição 5</li>
-              <li>Descrição 6</li>
-            </ul>
-          </div>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Detalhes:</h3>
-          <div class="card-informacoes">
-            <p id="detalhes">Lorem ipsum dolor sit amet. Non magnam eaque aut corporis omnis in velit porro id aperiam velit. Non quia corrupti At soluta velit ut quas quisquam sed dicta voluptatum. Vel reiciendis ducimus est repudiandae unde a porro consequatur sed omnis sunt non omnis rerum. Est voluptatem nobis qui voluptatibus pariatur cum dolores error aut vero magni. Vel voluptatem dolor non blanditiis pariatur aut repellat fugit ex error molestiae sit quisquam quia sed omnis provident! Non illo eius et internos similique non doloremque eveniet qui dolores provident id vitae necessitatibus. Non amet autem aut quaerat quibusdam qui quos voluptas sit voluptas veniam.</p>
-          </div>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Comodidades</h3>
-          <div class="card-informacoes">
-            <ul class="list-informacoes">
-              <li>Comodidade 1</li>
-              <li>Comodidade 2</li>
-              <li>Comodidade 3</li>
-              <li>Comodidade 4</li>
-              <li>Comodidade 5</li>
-              <li>Comodidade 6</li>
-            </ul>
-          </div>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Regras:</h3>
-          <div class="card-informacoes">
-            <p id="regras">O anunciante não informou as regras de seu imóvel anunciado. Você pode enviar uma mensagem para ele(a) para saber mais detalhes sobre a vaga.</p>
-          </div>
-        </div>
-        <div class="box-informacoes">
-          <h3 class="title-informacoes">Mapa:</h3>
-          <div>
-            <p id="visualizacao">Clique para mostrar os detalhes da visualização</p>
-            <div class=" m-10 mt-4 mb-1">
-              <button id="btn-mapa" class="rounded-xl h-12 w-48 font-bold text-lg text-white relative overflow-hidden">
-                Visualizar mapa 
-            </button>
+        <div class="grid grid-cols-1 col-span-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2">
+            <div class="mr-16">
+                <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+                    <!-- Carousel wrapper -->
+                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96 carousel">
+                        <!-- Item 1 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                            <img src="../../../assets/apartamento-design.jpg"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                alt="...">
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="../../../assets/apartamento-design.jpg"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                alt="...">
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="../../../assets/apartamento-design.jpg"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                alt="...">
+                        </div>
+                    </div>
+                    <!-- Slider indicators -->
+                    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                            data-carousel-slide-to="0"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                            data-carousel-slide-to="1"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                            data-carousel-slide-to="2"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                            data-carousel-slide-to="3"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                            data-carousel-slide-to="4"></button>
+                    </div>
+                    <!-- Slider controls -->
+                    <button type="button"
+                        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-prev>
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button"
+                        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-next>
+                        <span
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="box-preco flex justify-start">
+                    <h4>$900</h4>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Localização:</h3>
+                    <div class="card-informacoes">
+                        <h4 id="cep">Cep: <span>numero cep</span></h4>
+                        <h4 id="logradouro">Logradouro: <span>logradouro</span></h4>
+                        <h4 id="municipio">Município: <span>município</span></h4>
+                        <h4 id="bairro">Bairro: <span>bairro</span></h4>
+                    </div>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Descrição</h3>
+                    <div class="card-informacoes">
+                        <ul class="list-informacoes">
+                            <li>Descrição 1</li>
+                            <li>Descrição 2</li>
+                            <li>Descrição 3</li>
+                            <li>Descrição 4</li>
+                            <li>Descrição 5</li>
+                            <li>Descrição 6</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Detalhes:</h3>
+                    <div class="card-informacoes">
+                        <p id="detalhes">Lorem ipsum dolor sit amet. Non magnam eaque aut corporis omnis in velit porro
+                            id aperiam velit. Non quia corrupti At soluta velit ut quas quisquam sed dicta voluptatum.
+                            Vel reiciendis ducimus est repudiandae unde a porro consequatur sed omnis sunt non omnis
+                            rerum. Est voluptatem nobis qui voluptatibus pariatur cum dolores error aut vero magni. Vel
+                            voluptatem dolor non blanditiis pariatur aut repellat fugit ex error molestiae sit quisquam
+                            quia sed omnis provident! Non illo eius et internos similique non doloremque eveniet qui
+                            dolores provident id vitae necessitatibus. Non amet autem aut quaerat quibusdam qui quos
+                            voluptas sit voluptas veniam.</p>
+                    </div>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Comodidades</h3>
+                    <div class="card-informacoes">
+                        <ul class="list-informacoes">
+                            <li>Comodidade 1</li>
+                            <li>Comodidade 2</li>
+                            <li>Comodidade 3</li>
+                            <li>Comodidade 4</li>
+                            <li>Comodidade 5</li>
+                            <li>Comodidade 6</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Regras:</h3>
+                    <div class="card-informacoes">
+                        <p id="regras">O anunciante não informou as regras de seu imóvel anunciado. Você pode enviar uma
+                            mensagem para ele(a) para saber mais detalhes sobre a vaga.</p>
+                    </div>
+                </div>
+                <div class="box-informacoes">
+                    <h3 class="title-informacoes">Mapa:</h3>
+                    <div>
+                        <p id="visualizacao">Clique para mostrar os detalhes da visualização</p>
+                        <div class=" m-10 mt-4 mb-1">
+                            <button id="btn-mapa"
+                                class="rounded-xl h-12 w-48 font-bold text-lg text-white relative overflow-hidden">
+                                Visualizar mapa
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="flex flex-column justify-start content-center grow-0 w-64">
+                <div id="card-contato" class="p-6">
+                    <div>
+                        <h4>Contato</h4>
+                        <h5>Cadastrado em 22/05/2023</h5>
+                        <p>(xx)xxxxx-xxxx</p>
+                        <p>carlin@email.com</p>
+                    </div>
+                    <div class=" m-10 mt-4 mb-1 bg-green-500 font-bold text-lg text-white relative overflow-hidden flex flex-column">
+                        <button class="">
+                          Mais sobre nós
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
-  
-  </div>
-  
+    </div>
+</div>

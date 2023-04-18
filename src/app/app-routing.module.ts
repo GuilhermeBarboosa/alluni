@@ -3,6 +3,7 @@ import { AnunciarComponent } from './components/anunciar/anunciar.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
 import { InformacaoComponent } from './components/informacao/informacao.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 
 export const Approutes: Routes = [
@@ -16,7 +17,7 @@ export const Approutes: Routes = [
   },
   {
     path: 'anunciar',
-    component: AnunciarComponent
+    component: AnunciarComponent,
   },
   {
     path: 'sobre',
@@ -33,6 +34,10 @@ export const Approutes: Routes = [
   {
     path: 'informacao',
     component: InformacaoComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: 'authentication',

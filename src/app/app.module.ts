@@ -26,6 +26,7 @@ import { Approutes } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { InformacaoComponent } from './components/informacao/informacao.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InformacaoComponent } from './components/informacao/informacao.componen
     AnunciarComponent,
     SobreComponent,
     FooterComponent,
-    InformacaoComponent
+    InformacaoComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

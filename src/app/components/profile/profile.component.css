@@ -1,5 +1,9 @@
 .profile-logo {
   display: flex;
   justify-content: center;
-  align-items: center;
+
+}
+
+.botao{
+  background-color: green;
 }

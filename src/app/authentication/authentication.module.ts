@@ -16,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from "@angular/common/http";
 
 
-
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
   imports: [
@@ -32,7 +31,7 @@ import { HttpClientModule } from "@angular/common/http";
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
   ],
 })
 export class AuthenticationModule {}

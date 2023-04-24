@@ -28,6 +28,7 @@ import { SobreComponent } from './components/sobre/sobre.component';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleSigninService } from '../services/google-signin.service';
 
 @NgModule({
   declarations: [
@@ -62,23 +63,7 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     SocialLoginModule,
   ],
   providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              'clientId'
-            )
-          },
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
-      } as SocialAuthServiceConfig,
-    }
+    GoogleSigninService
   ],
   bootstrap: [AppComponent],
 })

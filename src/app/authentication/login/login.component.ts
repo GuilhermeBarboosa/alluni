@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { GoogleSigninService } from './../../../services/google-signin.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -13,23 +14,29 @@ import { SocialAuthService, GoogleLoginProvider } from "@abacritt/angularx-socia
   styleUrls: ['./login.component.css'],
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   loginForm: FormGroup = Object.create(null);
   loading: boolean = false;
-  googleLogoURL =
-"https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
 
-  constructor(private router: Router,private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
-    private authService: SocialAuthService) {this.matIconRegistry.addSvgIcon(
-      "logo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL));}
+  user: gapi.auth2.GoogleUser;
+
+  constructor(
+      private signInService: GoogleSigninService,
+      private ref: ChangeDetectorRef) {  }
+
   ngOnInit(): void {
-    this.createFormLogin();
+      this.signInService.observable().subscribe( user => {
+        this.user = user;
+        this.ref.detectChanges()
+      })
+  }
 
-    this.authService.authState.subscribe( (user) => {
-      console.log(user)
-    })
+  signIn(){
+    this.signInService.signin();
+  }
+
+  signOut(){
+    this.signInService.signout();
   }
 
   createFormLogin(): void {
@@ -40,20 +47,10 @@ export class LoginComponent {
   }
 
   login() {
-    this.loading = true;
-    if (this.loginForm.valid) {
-      alert('login com sucesso')
-      this.loading = false;
-    } else {
-      this.loginForm.markAllAsTouched();
-      alert('login falhou')
-      this.loading = false;
-    }
+
   }
 
   goToSignUp() {
-    this.router.navigateByUrl('/signup', {
-      skipLocationChange: false,
-    });
+
   }
 }

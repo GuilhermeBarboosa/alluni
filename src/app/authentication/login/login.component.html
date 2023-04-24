@@ -9,79 +9,13 @@
       <div class="login-form-wrapper">
         <p>Bem-vindo</p>
 
-        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input
-              type="email"
-              matInput
-              formControlName="email"
-              placeholder="seuemail@exemplo.com"
-            />
-            <mat-error
-              *ngIf="
-                loginForm?.get('email')?.hasError('email') &&
-                !loginForm?.get('email')?.hasError('required')
-              "
-            >
-              Informe um email válido
-            </mat-error>
-            <mat-error *ngIf="loginForm?.get('email')?.hasError('required')">
-              <strong>obrigatório</strong>
-            </mat-error>
-          </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>Senha</mat-label>
-            <input type="password" matInput formControlName="password" />
+          <button (click) = "signIn()" *ngIf="user == null">SignIn</button>
+          <button (click) = "signOut()" *ngIf="user != null">signOut</button>
 
-            <mat-error *ngIf="loginForm?.get('password')?.hasError('required')">
-              <strong>obrigatório</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <div class="form-button">
-          <button mat-raised-button color="primary">
-            <ng-container *ngIf="!loading">Login</ng-container>
-            <div *ngIf="loading" class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </button>
-        </div>
-        </form>
-
-        <div  class="register-link">
-          Não possui uma conta?
-          <a routerLink="/authentication/signup" routerLinkActive="active"><b>Registrar</b></a
-          >
-        </div>
-
-        <div class="wrapper-text-line">
-          <div class="line"></div>
-          <div class="text">Ou entre com</div>
-          <div class="line"></div>
-        </div>
-        <div class="wrapper-google-login">
-          <asl-google-signin-button>
-            <div id="g_id_onload"
-            data-client_id="YOUR_GOOGLE_CLIENT_ID"
-            data-login_uri="https://your.domain/your_login_endpoint"
-            data-auto_prompt="false">
-         </div>
-         <div class="g_id_signin"
-            data-type="standard"
-            data-size="large"
-            data-theme="outline"
-            data-text="sign_in_with"
-            data-shape="rectangular"
-            data-logo_alignment="left">
-         </div>
-          </asl-google-signin-button>
-        <!-- <button mat-button class="google-login-button">
-          <mat-icon
-                    svgIcon="logo"></mat-icon>Google
-          </button> -->
-        </div>
+          <div *ngIf="user != null">
+            <div>Your are signed in with Google  {{user.getBasicProfile().getName()}}</div>
+          </div>
       </div>
     </div>
   </div>

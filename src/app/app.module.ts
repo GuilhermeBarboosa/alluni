@@ -1,29 +1,33 @@
-import { SidebarFiltrosComponent } from './../shared/sidebar-filtros/sidebar-filtros.component';
-import { CardResidenciaComponent } from './../shared/card-residencia/card-residencia.component';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './../shared/navbar/navbar.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { Approutes } from './app-routing.module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { HomeComponent } from './components/home/home.component';
-import { FaqComponent } from './components/faq/faq.component';
 import { FiltroBuscaComponent } from 'src/shared/filtro-busca/filtro-busca.component';
+
+import { CardResidenciaComponent } from './../shared/card-residencia/card-residencia.component';
+import { NavbarComponent } from './../shared/navbar/navbar.component';
+import { SidebarFiltrosComponent } from './../shared/sidebar-filtros/sidebar-filtros.component';
+import { Approutes } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { AnunciarComponent } from './components/anunciar/anunciar.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { HomeComponent } from './components/home/home.component';
 import { SobreComponent } from './components/sobre/sobre.component';
+
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -55,8 +59,27 @@ import { SobreComponent } from './components/sobre/sobre.component';
     MatProgressSpinnerModule,
     MatIconModule,
     HttpClientModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

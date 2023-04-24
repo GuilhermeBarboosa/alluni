@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { DomSanitizer } from "@angular/platform-browser";
-import { MatIconRegistry } from "@angular/material/icon";
+
+import { SocialAuthService, GoogleLoginProvider } from "@abacritt/angularx-social-login";
 
 
 @Component({
@@ -15,15 +16,20 @@ import { MatIconRegistry } from "@angular/material/icon";
 export class LoginComponent {
   loginForm: FormGroup = Object.create(null);
   loading: boolean = false;
-  googleLogoURL = 
+  googleLogoURL =
 "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
 
   constructor(private router: Router,private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer) {this.matIconRegistry.addSvgIcon(
+    private domSanitizer: DomSanitizer,
+    private authService: SocialAuthService) {this.matIconRegistry.addSvgIcon(
       "logo",
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL));}
   ngOnInit(): void {
     this.createFormLogin();
+
+    this.authService.authState.subscribe( (user) => {
+      console.log(user)
+    })
   }
 
   createFormLogin(): void {

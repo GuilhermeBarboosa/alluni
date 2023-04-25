@@ -9,8 +9,13 @@
       <div class="login-form-wrapper">
         <p>Bem-vindo</p>
 
+        <div class="bg-gray-200 rounded-lg m-5">
+          <button (click) = "signIn()" *ngIf="user == null" mat-button class="google-login-button">
+            <mat-icon>android</mat-icon>
+          </button>
+        </div>
 
-          <button (click) = "signIn()" *ngIf="user == null">SignIn</button>
+          <!-- <button >SignIn</button> -->
           <button (click) = "signOut()" *ngIf="user != null">signOut</button>
 
           <div *ngIf="user != null">

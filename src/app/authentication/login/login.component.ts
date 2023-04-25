@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit{
       })
   }
 
-  signIn(){
-    this.signInService.signin();
+  async signIn(){
+   await this.signInService.signin();
+    console.log('dhsajhkdsahjk')
+    console.log(this.user.getBasicProfile().getEmail());
   }
 
   signOut(){

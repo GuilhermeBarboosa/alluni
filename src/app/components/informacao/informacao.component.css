@@ -28,11 +28,6 @@
     list-style-type: disc;
 }
 
-#btn-mapa {
-    border-radius: 5px;
-    background-color: #5F2EEA;
-}
-
 #card-contato {
     color: #fff;
     border-radius: 10px;
@@ -43,3 +38,6 @@
     margin-right: 4rem;
 }
 
+.color-bg{
+  background-color: #5F2EEA;
+}

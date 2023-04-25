@@ -41,7 +41,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     SobreComponent,
     FooterComponent,
     InformacaoComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

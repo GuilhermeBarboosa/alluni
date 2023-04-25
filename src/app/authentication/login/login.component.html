@@ -100,13 +100,14 @@
               <div class="">
                 <div class="font-semibold">Ou entre com</div>
               </div>
-                <div class="bg-gray-200 rounded-lg m-5">
-                  <button   (click) = "signIn()" *ngIf="user == null" mat-button class="google-login-button">
-                      <mat-icon svgIcon="logo"></mat-icon>Google
+
+                <div *ngIf="user == null" class="my-5 justify-center flex text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
+                  <button (click) = "signIn()"  class="flex align-center font-semibold text-sm">
+                      <mat-icon svgIcon="logo"></mat-icon><span class="px-2">Google</span>
                   </button>
                 </div>
 
-                <button (click) = "signOut()" *ngIf="user != null">signOut</button>
+                <button (click) = "signOut()" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" *ngIf="user != null">signOut</button>
                 <div *ngIf="user != null">
                   <div>Usuario {{user.getBasicProfile().getName()}}</div>
                 </div>

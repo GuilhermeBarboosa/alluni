@@ -21,7 +21,6 @@ export class GoogleSigninService implements OnInit {
 
     public async signin(){
     var auth2 = gapi.auth2.getAuthInstance();
-    // console.log(auth2);
     await auth2
       .signIn({
         scope: 'https://www.googleapis.com/auth/gmail.readonly',

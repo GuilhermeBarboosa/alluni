@@ -28,6 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { InformacaoComponent } from './components/informacao/informacao.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleSigninService } from '../services/google-signin.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,8 +64,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     RouterModule.forRoot(Approutes),
     MatProgressSpinnerModule,
     HttpClientModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    GoogleSigninService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

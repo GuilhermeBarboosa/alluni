@@ -1,33 +1,56 @@
-import { Component } from '@angular/core';
+import { GoogleSigninService } from './../../../services/google-signin.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material/icon';
-import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
+import { SocialAuthService, GoogleLoginProvider } from "@abacritt/angularx-social-login";
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+
+export class LoginComponent implements OnInit{
   loginForm: FormGroup = Object.create(null);
   loading: boolean = false;
   googleLogoURL =
     'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
 
+
+  user: gapi.auth2.GoogleUser;
+
   constructor(
-    private router: Router,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      'logo',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL)
-    );
-  }
+      private signInService: GoogleSigninService,
+      private ref: ChangeDetectorRef,
+      private router: Router,
+      private matIconRegistry: MatIconRegistry,
+      private domSanitizer: DomSanitizer) {
+        this.matIconRegistry.addSvgIcon(
+          'logo',
+          this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL)
+        );
+       }
+
   ngOnInit(): void {
     this.createFormLogin();
+      this.signInService.observable().subscribe( user => {
+        this.user = user;
+        this.ref.detectChanges()
+      })
+  }
+
+  async signIn(){
+   await this.signInService.signin();
+    // console.log('dhsajhkdsahjk')
+    // console.log(this.user.getBasicProfile().getEmail());
+  }
+
+  signOut(){
+    this.signInService.signout();
   }
 
   createFormLogin(): void {

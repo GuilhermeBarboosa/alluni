@@ -10,7 +10,7 @@ import { AnunciarService } from './anunciar.service';
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
 
-  constructor() { }
+  constructor(private anuncioS: AnunciarService) { }
 
   ngOnInit() {
     this.createFormAnuncio();
@@ -25,10 +25,9 @@ export class AnunciarComponent implements OnInit {
 
   createAnuncio(){
     if(this.anunciarForm.valid){
-      
-      alert('deu bom');
+      this.anuncioS.create(this.anunciarForm.value).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
-      alert('deu ruim')
+      alert('deu ruim');
     }
   }
 

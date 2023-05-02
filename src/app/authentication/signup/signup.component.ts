@@ -26,20 +26,27 @@ export class SignupComponent {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      confirmPassword: new FormControl('', this.validarSenha),
     });
   }
+
+  validarSenha: Validators = () => {
+    return null;
+  };
 
   signup() {
     this.loading = true;
     if (this.signupForm.valid) {
       this.loading = false;
-      alert('signup com sucesso')
-
+      alert('signup com sucesso');
     } else {
       this.signupForm.markAllAsTouched();
       this.loading = false;
-      alert('signup falhou')
+      alert('signup falhou');
     }
   }
 }

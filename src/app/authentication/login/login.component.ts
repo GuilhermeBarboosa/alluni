@@ -1,3 +1,4 @@
+import { LoginGoogleService, User } from 'src/services/login-google.service';
 import { GoogleSigninService } from './../../../services/google-signin.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -5,7 +6,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
-import { SocialAuthService, GoogleLoginProvider } from "@abacritt/angularx-social-login";
 
 
 @Component({
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit{
       private ref: ChangeDetectorRef,
       private router: Router,
       private matIconRegistry: MatIconRegistry,
-      private domSanitizer: DomSanitizer) {
+      private domSanitizer: DomSanitizer,
+      private loginGoogleService: LoginGoogleService) {
         this.matIconRegistry.addSvgIcon(
           'logo',
           this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL)
@@ -40,6 +41,15 @@ export class LoginComponent implements OnInit{
       this.signInService.observable().subscribe( user => {
         this.user = user;
         this.ref.detectChanges()
+
+
+        let element = {
+          'nome': this.user.getBasicProfile().getName(),
+          'email': this.user.getBasicProfile().getEmail(),
+          'googleID': this.user.getBasicProfile().getId()
+         }
+
+        this.loginGoogleService.login(element)
       })
   }
 

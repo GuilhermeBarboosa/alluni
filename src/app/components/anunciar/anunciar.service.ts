@@ -10,6 +10,6 @@ export class AnunciarService {
   constructor(private http: HttpClient) { }
 
   create(anunciar:any): Observable<void> {
-    return this.http.post<void>("http://localhost:8080/api/api/anuncios", anunciar);
+    return this.http.post<void>("http://localhost:8080/api/anuncios", anunciar);
   }
 }

@@ -19,7 +19,14 @@ export class AnunciarComponent implements OnInit {
   createFormAnuncio(): void {
     this.anunciarForm = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
-      preco: new FormControl('', [Validators.required])
+      preco: new FormControl('', [Validators.required]),
+      cep: new FormControl('', [Validators.required]),
+      logradouro: new FormControl('', [Validators.required]),
+      bairro: new FormControl('', [Validators.required]),
+      cidade: new FormControl('', [Validators.required]),
+      complemento: new FormControl(''),
+      referencia: new FormControl(''),
+      detalhes: new FormControl('')
     });
   }
 

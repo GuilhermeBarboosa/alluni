@@ -43,7 +43,7 @@ import { GoogleSigninService } from '../services/google-signin.service';
     SobreComponent,
     FooterComponent,
     InformacaoComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

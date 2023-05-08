@@ -15,8 +15,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
   imports: [

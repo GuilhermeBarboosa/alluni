@@ -35,34 +35,30 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.createFormLogin();
-    console.log('primeiro', this.user);
     this.signInService.observable().subscribe((user) => {
       this.user = user;
       this.ref.detectChanges();
-      console.log('primeiro', this.user);
-      let element = {
-        nome: this.user.getBasicProfile().getName(),
-        email: this.user.getBasicProfile().getEmail(),
-        googleID: this.user.getBasicProfile().getId(),
-      };
-      console.log('terceiro', element);
 
-      this.loginGoogleService.login(element);
-
-      this.loginGoogleService.login(element).subscribe({
-        next: (res: any) => {
-          console.log('deu certo');
-        },
-        error: (error) => {
-          console.log('deu erro');
-          console.log(error);
-        },
-      });
     });
   }
 
   async signIn() {
     await this.signInService.signin();
+
+    let user = {
+      name: this.user.getBasicProfile().getName(),
+      email: this.user.getBasicProfile().getEmail(),
+      googleID: this.user.getBasicProfile().getId(),
+    };
+
+    this.loginGoogleService.login(user).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   signOut() {

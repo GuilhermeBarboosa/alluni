@@ -6,58 +6,66 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   loginForm: FormGroup = Object.create(null);
   loading: boolean = false;
   googleLogoURL =
     'https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg';
 
-
   user: gapi.auth2.GoogleUser;
 
   constructor(
-      private signInService: GoogleSigninService,
-      private ref: ChangeDetectorRef,
-      private router: Router,
-      private matIconRegistry: MatIconRegistry,
-      private domSanitizer: DomSanitizer,
-      private loginGoogleService: LoginGoogleService) {
-        this.matIconRegistry.addSvgIcon(
-          'logo',
-          this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL)
-        );
-       }
+    private signInService: GoogleSigninService,
+    private ref: ChangeDetectorRef,
+    private router: Router,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private loginGoogleService: LoginGoogleService
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'logo',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.googleLogoURL)
+    );
+  }
 
   ngOnInit(): void {
     this.createFormLogin();
-      this.signInService.observable().subscribe( user => {
-        this.user = user;
-        this.ref.detectChanges()
+    console.log('primeiro', this.user);
+    this.signInService.observable().subscribe((user) => {
+      this.user = user;
+      this.ref.detectChanges();
+      console.log('primeiro', this.user);
+      let element = {
+        nome: this.user.getBasicProfile().getName(),
+        email: this.user.getBasicProfile().getEmail(),
+        googleID: this.user.getBasicProfile().getId(),
+      };
+      console.log('terceiro', element);
 
+      this.loginGoogleService.login(element);
 
-        let element = {
-          'nome': this.user.getBasicProfile().getName(),
-          'email': this.user.getBasicProfile().getEmail(),
-          'googleID': this.user.getBasicProfile().getId()
-         }
-
-        this.loginGoogleService.login(element)
-      })
+      this.loginGoogleService.login(element).subscribe({
+        next: (res: any) => {
+          console.log('deu certo');
+        },
+        error: (error) => {
+          console.log('deu erro');
+          console.log(error);
+        },
+      });
+    });
   }
 
-  async signIn(){
-   await this.signInService.signin();
+  async signIn() {
+    await this.signInService.signin();
   }
 
-  signOut(){
+  signOut() {
     this.signInService.signout();
   }
 

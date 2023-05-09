@@ -1,5 +1,3 @@
-import { LoginGoogleService, User } from 'src/services/login-google.service';
-import { GoogleSigninService } from './../../../services/google-signin.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -7,6 +5,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { finalize, Subject, takeUntil } from 'rxjs';
+import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
+import { LoginGoogleService } from 'src/services/login-google/login-google.service';
 
 @Component({
   selector: 'app-login',

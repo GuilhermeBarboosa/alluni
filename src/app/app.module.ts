@@ -27,8 +27,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { InformacaoComponent } from './components/informacao/informacao.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
 
-import { GoogleSigninService } from '../services/google-signin.service';
 
 @NgModule({
   declarations: [

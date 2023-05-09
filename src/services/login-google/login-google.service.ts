@@ -15,6 +15,6 @@ export interface User {
 export class LoginGoogleService {
   constructor(private httpClient: HttpClient) {}
   login(element: any): Observable<any> {
-    return this.httpClient.post(`${environment.api}/users/login`, element);
+    return this.httpClient.post(`${environment.api}/google/login`, element);
   }
 }

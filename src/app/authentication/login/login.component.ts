@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
           next: (data) => {
             console.log(data);
             console.log('Login efetuado com sucesso!');
+            this.router.navigateByUrl('/home');
           }
         });
       },
@@ -70,9 +71,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  signOut() {
-    this.signInService.signout();
-  }
+  //deslogar com o google
+  // signOut() {
+  //   this.signInService.signout();
+  // }
 
   createFormLogin(): void {
     this.loginForm = new FormGroup({

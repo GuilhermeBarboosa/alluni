@@ -8,6 +8,7 @@ import {
   ROLES_KEY,
   TOKEN_KEY,
   USERNAME_KEY,
+  NAME_KEY,
 } from 'src/shared/constants/auth.constants';
 import { JwtService } from 'src/shared/services/jwt.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
@@ -40,6 +41,7 @@ export class AuthenticationService {
           this.localStorageService.setItem(TOKEN_KEY, data.token);
           this.localStorageService.setItem(USERNAME_KEY, data.username);
           this.localStorageService.setItem(EMAIL_KEY, data.email);
+          this.localStorageService.setItem(NAME_KEY, data.name);
           this.localStorageService.setItem(ROLES_KEY, data.roles.join(' '));
         })
       );

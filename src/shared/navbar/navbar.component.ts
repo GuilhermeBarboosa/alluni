@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorageService: LocalStorageService) { }
+
+  username = '';
 
   ngOnInit() {
+    if(this.localStorageService.getItem('@NAME') != null){
+      this.username = this.localStorageService.getItem('@NAME');
+      this.username = this.username.toLowerCase();
+      this.username = this.username.split(' ')[0];
+      this.username = this.username.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    }
+
   }
 
 }

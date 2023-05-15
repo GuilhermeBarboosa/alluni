@@ -9,9 +9,9 @@ import { AnunciarService } from './anunciar.service';
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
-
+  
   constructor(private anuncioS: AnunciarService) { }
-
+  
   ngOnInit() {
     this.createFormAnuncio();
   }
@@ -26,13 +26,23 @@ export class AnunciarComponent implements OnInit {
       cidade: new FormControl('', [Validators.required]),
       complemento: new FormControl(''),
       referencia: new FormControl(''),
-      detalhes: new FormControl('')
+      detalhes: new FormControl(''),
+      quartos: new FormControl('', [Validators.required]),
+      banheiros: new FormControl('', [Validators.required]),
+      wifi: new FormControl(''),
+      ar: new FormControl(''),
+      manutencao: new FormControl(''),
+      limpeza: new FormControl(''),
+      fumar: new FormControl('', [Validators.required]),
+      criancas: new FormControl('', [Validators.required])
     });
   }
 
   createAnuncio(){
     if(this.anunciarForm.valid){
-      this.anuncioS.create(this.anunciarForm.value).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      console.log(this.anunciarForm.value);
+      alert('deu bom');
+      // this.anuncioS.create(this.anunciarForm.value).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
       alert('deu ruim');
     }

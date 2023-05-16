@@ -14,9 +14,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/shared/shared.module';
+import { ForgotPassword } from './forgetPassword/forgotPassword.component';
+import { NewPassword } from './newPassWord/newPassword.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignupComponent, ForgotPassword, NewPassword],
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),

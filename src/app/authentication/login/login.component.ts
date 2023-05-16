@@ -7,6 +7,8 @@ import { AuthenticationService } from '../authentication.service';
 import { finalize, Subject, takeUntil } from 'rxjs';
 import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
 import { LoginGoogleService } from 'src/services/login-google/login-google.service';
+import { ModalService } from 'src/shared/services/modal.service';
+import { ForgotPassword } from '../forgetPassword/forgotPassword.component';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private loginGoogleService: LoginGoogleService
+    private loginGoogleService: LoginGoogleService,
+    private modalService: ModalService
   ) {
     this.matIconRegistry.addSvgIcon(
       'logo',
@@ -117,5 +120,11 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/signup', {
       skipLocationChange: false,
     });
+  }
+
+  openModalEsqueciSenha() {
+    this.modalService.open(ForgotPassword).beforeClosed().subscribe((response)=>{
+      console.log('kkkkkkk')
+    })
   }
 }

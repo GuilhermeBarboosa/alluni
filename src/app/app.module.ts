@@ -29,6 +29,7 @@ import { InformacaoComponent } from './components/informacao/informacao.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
 
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { GoogleSigninService } from 'src/services/google-signin/google-signin.se
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    SharedModule,
     MatInputModule,
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,

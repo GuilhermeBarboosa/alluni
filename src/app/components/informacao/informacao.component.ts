@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-informacao',
   templateUrl: './informacao.component.html',
@@ -7,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class InformacaoComponent {
 
+  constructor() { }
+
+
+  
 }

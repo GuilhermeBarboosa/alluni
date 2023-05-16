@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,7 +11,10 @@ export class SignupComponent {
   signupForm: FormGroup = Object.create(null);
   loading: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.createFormSignup();
@@ -26,6 +30,8 @@ export class SignupComponent {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
+      gender: new FormControl('', [Validators.required]),
+      username: new FormControl(''),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -37,15 +43,26 @@ export class SignupComponent {
     return null;
   };
 
-  signup() {
-    this.loading = true;
+  onSubmit(): void {
     if (this.signupForm.valid) {
-      this.loading = false;
-      alert('signup com sucesso');
+      this.signup();
     } else {
       this.signupForm.markAllAsTouched();
-      this.loading = false;
-      alert('signup falhou');
+      console.log('erro');
     }
+  }
+
+  signup() {
+    this.signupForm.value.username = 'vini1234';
+
+    this.authenticationService.addUser(this.signupForm.value).subscribe({
+      next: () => {
+        alert('cadastrado com sucesso');
+        this.router.navigate(['/']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
   }
 }

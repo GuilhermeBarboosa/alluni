@@ -25,7 +25,7 @@
         <form
           class="signup-form"
           [formGroup]="signupForm"
-          (ngSubmit)="signup()"
+          (ngSubmit)="onSubmit()"
         >
           <div>
             <mat-form-field class="example-full-width">
@@ -63,10 +63,10 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Gênero</mat-label>
-            <mat-select>
-              <mat-option value="one">Masculino</mat-option>
-              <mat-option value="two">Feminino</mat-option>
-              <mat-option value="three">Outro</mat-option>
+            <mat-select formControlName="gender">
+              <mat-option value="M">Masculino</mat-option>
+              <mat-option value="F">Feminino</mat-option>
+              <mat-option value="O">Outro</mat-option>
             </mat-select>
           </mat-form-field>
 

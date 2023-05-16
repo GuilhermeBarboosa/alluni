@@ -70,4 +70,9 @@ export class AuthenticationService {
     const rolesText = this.localStorageService.getItem(ROLES_KEY);
     return rolesText.split(' ');
   }
+
+  addUser(user: any): Observable<void> {
+    console.log('user', user);
+    return this.httpClient.post<void>(`${environment.api}/users`, user);
+  }
 }

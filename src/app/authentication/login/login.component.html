@@ -5,6 +5,52 @@
               <img src="../../../assets/logo.png" alt="Logo Alluni" />
             </a>
           </div>
+
+          <div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput formControlName="password" />
+
+              <mat-error
+                *ngIf="loginForm?.get('password')?.hasError('required')"
+              >
+                <strong>Obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-button">
+            <button
+              class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            >
+              Entrar
+              <!-- mat-raised-button -->
+              <!-- <ng-container *ngIf="!loading">Login</ng-container>
+              <div *ngIf="loading" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> -->
+            </button>
+          </div>
+          
+        </form>
+        <div class="form-button">
+          <button
+            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          (click)="openModalEsqueciSenha()">
+            Esqueci minha senha
+            <!-- mat-raised-button -->
+            <!-- <ng-container *ngIf="!loading">Login</ng-container>
+            <div *ngIf="loading" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div> -->
+          </button>
+        </div>
+
+        <div class="flex mt-2">
+          <p class="text-md pr-2 font-semibold">Não possui uma conta?</p>
+          <a routerLink="/authentication/signup" routerLinkActive="active"
+            ><b class="text-green-500">Registrar</b></a
+          >
         </div>
 
         <div class="h-full w-full">

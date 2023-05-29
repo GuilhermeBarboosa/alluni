@@ -27,22 +27,38 @@ export class AnunciarComponent implements OnInit {
       complemento: new FormControl(''),
       referencia: new FormControl(''),
       detalhes: new FormControl(''),
-      quartos: new FormControl('', [Validators.required]),
-      banheiros: new FormControl('', [Validators.required]),
+      quartos: new FormControl(''),
+      banheiros: new FormControl(''),
       wifi: new FormControl(''),
       ar: new FormControl(''),
       manutencao: new FormControl(''),
       limpeza: new FormControl(''),
-      fumar: new FormControl('', [Validators.required]),
-      criancas: new FormControl('', [Validators.required])
+      fumar: new FormControl(''),
+      criancas: new FormControl('')
     });
   }
 
   createAnuncio(){
     if(this.anunciarForm.valid){
+      let json = {
+        "dsin": this.anunciarForm.value.titulo,
+        "valor": this.anunciarForm.value.valor,
+        "ddet": this.anunciarForm.value.detalhes,
+        "fotoID": "1",
+        "userID": "1",
+        "endreco": {
+          "cep": this.anunciarForm.value.cep,
+          "rua": this.anunciarForm.value.logradouro,
+          "bairro": this.anunciarForm.value.bairro,
+          "cidade": this.anunciarForm.value.cidade,
+          "pais": "Brasil",
+          "referencia": this.anunciarForm.value.referencia
+        }
+      }
+
+
       console.log(this.anunciarForm.value);
-      alert('deu bom');
-      // this.anuncioS.create(this.anunciarForm.value).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
       alert('deu ruim');
     }

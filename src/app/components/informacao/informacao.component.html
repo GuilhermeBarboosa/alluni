@@ -3,25 +3,25 @@
 </div>
 
 
-<div class="lg:mx-20 md:mx-5 sm:mx-10 mx-5">
+<div class="lg:mx-20 md:mx-5 sm:mx-10 mx-10">
   <div>
     <div class="my-10">
       <div>
-          <h2 id="titulo">Lindo apartamento no Penthouse em Alphaville</h2>
-          <h3 id="publicacao">Publicado em 03/04 às 19:11</h3>
+          <h2 id="titulo">{{anuncio.dsin}}</h2>
+          <h3 id="publicacao">Publicado em {{anuncio.createdDate}}</h3>
       </div>
 
 
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleAutoplaying" class="img carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../../../assets/apartamento-design.jpg"  class="d-block w-full" alt="...">
+            <img src="../../../assets/apartamento-design.jpg"  class="d-block" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/apartamento-design.jpg" class="d-block w-full" alt="...">
+            <img src="../../../assets/apartamento-design.jpg" class="d-block" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="../../../assets/apartamento-design.jpg" class="d-block w-full" alt="...">
+            <img src="../../../assets/apartamento-design.jpg" class="d-block" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -35,7 +35,7 @@
       </div>
 
       <div class="box-preco flex justify-end">
-        <h4>$900</h4>
+        <h4>R${{anuncio.valor}}</h4>
       </div>
       <div class="box-informacoes">
         <h3 class="title-informacoes">Localização:</h3>
@@ -62,7 +62,7 @@
       <div class="box-informacoes">
         <h3 class="title-informacoes">Detalhes:</h3>
         <div class="card-informacoes">
-          <p id="detalhes">Lorem ipsum dolor sit amet. Non magnam eaque aut corporis omnis in velit porro id aperiam velit. Non quia corrupti At soluta velit ut quas quisquam sed dicta voluptatum. Vel reiciendis ducimus est repudiandae unde a porro consequatur sed omnis sunt non omnis rerum. Est voluptatem nobis qui voluptatibus pariatur cum dolores error aut vero magni. Vel voluptatem dolor non blanditiis pariatur aut repellat fugit ex error molestiae sit quisquam quia sed omnis provident! Non illo eius et internos similique non doloremque eveniet qui dolores provident id vitae necessitatibus. Non amet autem aut quaerat quibusdam qui quos voluptas sit voluptas veniam.</p>
+          <p id="detalhes">{{anuncio.ddet}}</p>
         </div>
       </div>
       <div class="box-informacoes">

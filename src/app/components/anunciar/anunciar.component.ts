@@ -42,22 +42,24 @@ export class AnunciarComponent implements OnInit {
     if(this.anunciarForm.valid){
       let json = {
         "dsin": this.anunciarForm.value.titulo,
-        "valor": this.anunciarForm.value.valor,
+        "valor": this.anunciarForm.value.preco,
         "ddet": this.anunciarForm.value.detalhes,
         "fotoID": "1",
         "userID": "1",
-        "endreco": {
+        "endereco": {
           "cep": this.anunciarForm.value.cep,
           "rua": this.anunciarForm.value.logradouro,
           "bairro": this.anunciarForm.value.bairro,
           "cidade": this.anunciarForm.value.cidade,
           "pais": "Brasil",
           "referencia": this.anunciarForm.value.referencia
-        }
+        },
+        "locacaoID": "1"
       }
 
 
-      console.log(this.anunciarForm.value);
+      alert("deu bom");
+      console.log(json);
       this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
       alert('deu ruim');

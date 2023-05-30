@@ -41,3 +41,9 @@
 .color-bg{
   background-color: #5F2EEA;
 }
+
+.img{
+  height: 70%;
+  width: 70%;
+  margin: auto;
+}

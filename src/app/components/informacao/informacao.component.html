@@ -40,10 +40,10 @@
       <div class="box-informacoes">
         <h3 class="title-informacoes">Localização:</h3>
         <div class="card-informacoes">
-          <h4 id="cep">Cep: <span>numero cep</span></h4>
-          <h4 id="logradouro">Logradouro: <span>logradouro</span></h4>
-          <h4 id="municipio">Município: <span>município</span></h4>
-          <h4 id="bairro">Bairro: <span>bairro</span></h4>
+          <h4 id="cep">Cep: <span>{{anuncio.cep}}</span></h4>
+          <h4 id="logradouro">Logradouro: <span>{{anuncio.rua}}</span></h4>
+          <h4 id="municipio">Município: <span>{{anuncio.cidade}}</span></h4>
+          <h4 id="bairro">Bairro: <span>{{anuncio.bairro}}</span></h4>
         </div>
       </div>
       <div class="box-informacoes">
@@ -89,7 +89,7 @@
         <div>
           <p id="visualizacao">Clique para mostrar os detalhes da visualização</p>
           <div class=" mt-4 mb-1 ">
-            <a href="https://www.google.com/maps?q=Empire+State+Building,+New+York" target="_blank" class="rounded h-12 w-48 text-md text-white color-bg p-2">
+            <a href="https://www.google.com/maps?q={{anuncio.cep}}" target="_blank" class="rounded h-12 w-48 text-md text-white color-bg p-2">
               Visualizar mapa
           </a>
           </div>

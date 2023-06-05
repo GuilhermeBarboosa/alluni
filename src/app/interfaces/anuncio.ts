@@ -4,8 +4,17 @@ export interface Anuncio extends Defaultdto{
   dsin : string;
   valor : number;
   ddet : string;
-  fotoID : number;
-  enderecoID : number;
-  userID : number;
-  locacaoID : number;
+  caminho: string;
+  cep: string;
+  rua : string;
+  bairro: string;
+  complemento: string;
+  cidade: string;
+  pais: string;
+  referencia: string;
+  name: string;
+  email: string;
+  locacao: string;
+  nameLocacao: string;
+  emailLocacao: string;
 }

@@ -5,13 +5,13 @@ import { AnunciarService } from './anunciar.service';
 @Component({
   selector: 'app-anunciar',
   templateUrl: './anunciar.component.html',
-  styleUrls: ['./anunciar.component.css']
+  styleUrls: ['./anunciar.component.css'],
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
-  
-  constructor(private anuncioS: AnunciarService) { }
-  
+
+  constructor(private anuncioS: AnunciarService) {}
+
   ngOnInit() {
     this.createFormAnuncio();
   }
@@ -34,36 +34,41 @@ export class AnunciarComponent implements OnInit {
       manutencao: new FormControl(''),
       limpeza: new FormControl(''),
       fumar: new FormControl(''),
-      criancas: new FormControl('')
+      criancas: new FormControl(''),
     });
   }
 
-  createAnuncio(){
-    if(this.anunciarForm.valid){
+  createAnuncio() {
+    if (this.anunciarForm.valid) {
       let json = {
-        "dsin": this.anunciarForm.value.titulo,
-        "valor": this.anunciarForm.value.preco,
-        "ddet": this.anunciarForm.value.detalhes,
-        "fotoID": "1",
-        "userID": "1",
-        "endereco": {
-          "cep": this.anunciarForm.value.cep,
-          "rua": this.anunciarForm.value.logradouro,
-          "bairro": this.anunciarForm.value.bairro,
-          "cidade": this.anunciarForm.value.cidade,
-          "pais": "Brasil",
-          "referencia": this.anunciarForm.value.referencia
+        dsin: this.anunciarForm.value.titulo,
+        valor: this.anunciarForm.value.preco,
+        ddet: this.anunciarForm.value.detalhes,
+        fotoID: '1',
+        userID: '1',
+        endereco: {
+          cep: this.anunciarForm.value.cep,
+          rua: this.anunciarForm.value.logradouro,
+          bairro: this.anunciarForm.value.bairro,
+          cidade: this.anunciarForm.value.cidade,
+          pais: 'Brasil',
+          referencia: this.anunciarForm.value.referencia,
         },
-        "locacaoID": "1"
-      }
+        locacaoID: '1',
+      };
 
-
-      alert("deu bom");
+      alert('deu bom');
       console.log(json);
-      this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      this.anuncioS.create(json).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
     } else {
       alert('deu ruim');
     }
   }
-
 }

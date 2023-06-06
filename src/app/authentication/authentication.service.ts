@@ -9,6 +9,7 @@ import {
   TOKEN_KEY,
   USERNAME_KEY,
   NAME_KEY,
+  ID_KEY,
 } from 'src/shared/constants/auth.constants';
 import { JwtService } from 'src/shared/services/jwt.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
@@ -38,11 +39,13 @@ export class AuthenticationService {
       })
       .pipe(
         tap((data) => {
+          console.log('AQQ', data.id);
           this.localStorageService.setItem(TOKEN_KEY, data.token);
           this.localStorageService.setItem(USERNAME_KEY, data.username);
           this.localStorageService.setItem(EMAIL_KEY, data.email);
           this.localStorageService.setItem(NAME_KEY, data.name);
           this.localStorageService.setItem(ROLES_KEY, data.roles.join(' '));
+          this.localStorageService.setItem(ID_KEY, data.id);
         })
       );
   }
@@ -73,8 +76,16 @@ export class AuthenticationService {
     return rolesText.split(' ');
   }
 
+  getId(): string {
+    return this.localStorageService.getItem(ID_KEY);
+  }
+
   addUser(user: any): Observable<void> {
     console.log('user', user);
     return this.httpClient.post<void>(`${environment.api}/users`, user);
+  }
+
+  getUserById(id: number): Observable<any> {
+    return this.httpClient.get<any>(`${environment.api}/users/${id}`);
   }
 }

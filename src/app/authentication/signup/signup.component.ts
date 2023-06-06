@@ -53,8 +53,11 @@ export class SignupComponent {
   }
 
   signup() {
-    this.signupForm.value.username = 'vini1234';
-
+    this.signupForm.value.username = this.signupForm.value.email.slice(
+      0,
+      this.signupForm.value.email.indexOf('@')
+    );
+    console.log('signup', this.signupForm.value);
     this.authenticationService.addUser(this.signupForm.value).subscribe({
       next: () => {
         alert('cadastrado com sucesso');

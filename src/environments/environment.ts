@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   AUTHORIZATION_KEY: 'ZXZlcmlzR2VzdGFvOkczc3RAb0ZAY2ls',
-  api: 'http://localhost:8080/api'
+  api: 'http://localhost:8080',
 };

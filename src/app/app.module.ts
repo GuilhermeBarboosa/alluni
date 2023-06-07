@@ -30,6 +30,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
 
 import { SharedModule } from 'src/shared/shared.module';
+import { SafePipeService } from 'src/services/safe-pipe.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SharedModule } from 'src/shared/shared.module';
     FooterComponent,
     InformacaoComponent,
     ProfileComponent,
+    SafePipeService
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { SharedModule } from 'src/shared/shared.module';
     MatAutocompleteModule,
     RouterModule.forRoot(Approutes),
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [
     GoogleSigninService

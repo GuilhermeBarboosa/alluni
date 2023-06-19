@@ -12,4 +12,8 @@ export class FotoService {
   getById(id: any) {
     return this.http.get(`${environment.api}/fotos/${id}`);
   }
+
+  getBydIdAnuncio(id: any) {
+    return this.http.get(`${environment.api}/fotos/anuncio/${id}`);
+  }
 }

@@ -4,6 +4,7 @@ import { AnuncioService } from '../../services/anuncio/anuncio.service';
 import { Anuncio } from '../../interfaces/anuncio';
 import { FormatterDateService } from 'src/services/formatter-date/formatter-date.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Foto } from 'src/app/interfaces/foto';
 
 @Component({
   selector: 'app-informacao',
@@ -18,13 +19,13 @@ export class InformacaoComponent implements OnInit {
     private formatterDate: FormatterDateService
   ) {}
 
+  arrayFotos: Foto[];
   anuncio: Anuncio;
-  caminho: any;
 
   ngOnInit(): void {
     this.anuncioService.getById(1).subscribe((res: any) => {
-      var teste = JSON.parse(JSON.stringify(res));
-      this.anuncio = teste;
+      var json = JSON.parse(JSON.stringify(res));
+      this.anuncio = json;
       console.log(this.anuncio);
 
       const formatted = this.formatterDate.formatarData(
@@ -33,15 +34,17 @@ export class InformacaoComponent implements OnInit {
       this.anuncio.createdDate = formatted;
     });
 
-    this.fotoService.getById(1).subscribe((res: any) => {
-      var teste = JSON.parse(JSON.stringify(res));
-      // this.anuncio.foto = teste;
-      this.caminho = this.sanitizer.bypassSecurityTrustStyle(
-        `${teste.caminho}`
-      );
-      // this.caminho = teste.caminho;
-      console.log(this.caminho.changingThisBreaksApplicationSecurity);
-      this.caminho = this.caminho.changingThisBreaksApplicationSecurity;
+    this.fotoService.getBydIdAnuncio(1).subscribe((res: any) => {
+      var json = JSON.parse(JSON.stringify(res));
+      console.log(json)
+      this.arrayFotos = json.data;
+
+      console.log(this.arrayFotos);
+
     });
+
+
   }
+
+
 }

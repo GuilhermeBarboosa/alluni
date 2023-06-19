@@ -5,12 +5,12 @@ import { AnunciarService } from './anunciar.service';
 @Component({
   selector: 'app-anunciar',
   templateUrl: './anunciar.component.html',
-  styleUrls: ['./anunciar.component.css']
+  styleUrls: ['./anunciar.component.css'],
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
 
-  constructor(private anuncioS: AnunciarService) { }
+  constructor(private anuncioS: AnunciarService) {}
 
   ngOnInit() {
     this.createFormAnuncio();
@@ -26,16 +26,22 @@ export class AnunciarComponent implements OnInit {
       cidade: new FormControl('', [Validators.required]),
       complemento: new FormControl(''),
       referencia: new FormControl(''),
-      detalhes: new FormControl('')
+      detalhes: new FormControl(''),
     });
   }
 
-  createAnuncio(){
-    if(this.anunciarForm.valid){
-      this.anuncioS.create(this.anunciarForm.value).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+  createAnuncio() {
+    if (this.anunciarForm.valid) {
+      this.anuncioS.create(this.anunciarForm.value).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
     } else {
       alert('deu ruim');
     }
   }
-
 }

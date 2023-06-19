@@ -15,4 +15,8 @@ constructor(
     return this.http.get(`${environment.api}/anuncios/${id}`);
   }
 
+  getByAll(){
+    return this.http.get(`${environment.api}/anuncios/`);
+  }
+
 }

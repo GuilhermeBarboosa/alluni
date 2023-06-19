@@ -5,6 +5,7 @@ import { Anuncio } from '../../interfaces/anuncio';
 import { FormatterDateService } from 'src/services/formatter-date/formatter-date.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Foto } from 'src/app/interfaces/foto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-informacao',
@@ -16,14 +17,16 @@ export class InformacaoComponent implements OnInit {
     private anuncioService: AnuncioService,
     private fotoService: FotoService,
     private sanitizer: DomSanitizer,
+    private activedRouter: ActivatedRoute,
     private formatterDate: FormatterDateService
   ) {}
 
+  id = this.activedRouter.snapshot.params['id'];
   arrayFotos: Foto[];
   anuncio: Anuncio;
 
   ngOnInit(): void {
-    this.anuncioService.getById(1).subscribe((res: any) => {
+    this.anuncioService.getById(this.id).subscribe((res: any) => {
       var json = JSON.parse(JSON.stringify(res));
       this.anuncio = json;
       console.log(this.anuncio);
@@ -34,13 +37,12 @@ export class InformacaoComponent implements OnInit {
       this.anuncio.createdDate = formatted;
     });
 
-    this.fotoService.getBydIdAnuncio(1).subscribe((res: any) => {
+    this.fotoService.getBydIdAnuncio(this.id).subscribe((res: any) => {
       var json = JSON.parse(JSON.stringify(res));
       console.log(json)
       this.arrayFotos = json.data;
 
       console.log(this.arrayFotos);
-
     });
 
 

@@ -28,10 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { InformacaoComponent } from './components/informacao/informacao.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { GoogleSigninService } from 'src/services/google-signin/google-signin.service';
-
 import { SharedModule } from 'src/shared/shared.module';
 import { SafePipeService } from 'src/services/safe-pipe.service';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +53,7 @@ import { SafePipeService } from 'src/services/safe-pipe.service';
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     CommonModule,
     SharedModule,
     MatInputModule,
@@ -70,7 +70,7 @@ import { SafePipeService } from 'src/services/safe-pipe.service';
 
   ],
   providers: [
-    GoogleSigninService
+    GoogleSigninService,
   ],
   bootstrap: [AppComponent],
 })

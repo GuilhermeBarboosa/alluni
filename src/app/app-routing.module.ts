@@ -32,7 +32,7 @@ export const Approutes: Routes = [
     component: SobreComponent,
   },
   {
-    path: 'informacao',
+    path: 'informacao/:id',
     component: InformacaoComponent,
   },
   {

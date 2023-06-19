@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Anuncio } from '../../app/interfaces/anuncio';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-residencia',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardResidenciaComponent implements OnInit {
 
-  constructor() { }
+  @Input() anuncio: Anuncio;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToInfoAnuncio(){
+    this.router.navigateByUrl(`informacao/${this.anuncio.id}`);
   }
 
 }

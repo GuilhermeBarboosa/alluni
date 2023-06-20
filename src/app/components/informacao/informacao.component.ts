@@ -42,7 +42,7 @@ export class InformacaoComponent implements OnInit {
       console.log(json)
       this.arrayFotos = json.data;
 
-      console.log(this.arrayFotos);
+      // console.log(this.arrayFotos);
     });
 
 

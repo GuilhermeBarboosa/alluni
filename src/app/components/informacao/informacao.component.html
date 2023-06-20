@@ -47,41 +47,40 @@
         </div>
       </div>
       <div class="box-informacoes">
-        <h3 class="title-informacoes">Descrição</h3>
-        <div class="card-informacoes">
-          <ul class="list-informacoes">
-            <li>Descrição 1</li>
-            <li>Descrição 2</li>
-            <li>Descrição 3</li>
-            <li>Descrição 4</li>
-            <li>Descrição 5</li>
-            <li>Descrição 6</li>
-          </ul>
-        </div>
-      </div>
-      <div class="box-informacoes">
         <h3 class="title-informacoes">Detalhes:</h3>
         <div class="card-informacoes">
           <p id="detalhes">{{anuncio.ddet}}</p>
         </div>
       </div>
       <div class="box-informacoes">
+        <h3 class="title-informacoes">Descrição</h3>
+        <div class="card-informacoes">
+          <ul class="list-informacoes">
+            <li>Quantidade de banheiros: <span>{{anuncio.qtd_banheiro}}</span> </li>
+            <li>Quantidade de quartos: <span>{{anuncio.qtd_quarto}}</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="box-informacoes">
         <h3 class="title-informacoes">Comodidades</h3>
         <div class="card-informacoes">
           <ul class="list-informacoes">
-            <li>Comodidade 1</li>
-            <li>Comodidade 2</li>
-            <li>Comodidade 3</li>
-            <li>Comodidade 4</li>
-            <li>Comodidade 5</li>
-            <li>Comodidade 6</li>
+            <li *ngIf="anuncio.ar == true">Ar condicionado</li>
+            <li *ngIf="anuncio.wifi == true">Wifi</li>
+            <li *ngIf="anuncio.limpeza == true">Limpeza</li>
+            <li *ngIf="anuncio.manutencao == true">Manutenção</li>
           </ul>
         </div>
       </div>
       <div class="box-informacoes">
         <h3 class="title-informacoes">Regras:</h3>
         <div class="card-informacoes">
-          <p id="regras">O anunciante não informou as regras de seu imóvel anunciado. Você pode enviar uma mensagem para ele(a) para saber mais detalhes sobre a vaga.</p>
+
+          <p *ngIf="anuncio.criancas == false && anuncio.fumantes == false" id="regras">O anunciante não informou as regras de seu imóvel anunciado. Você pode enviar uma mensagem para ele(a) para saber mais detalhes sobre a vaga.</p>
+
+          <p *ngIf="anuncio.criancas == true">Crianças</p>
+          <p *ngIf="anuncio.fumantes == true">Fumantes</p>
+
         </div>
       </div>
       <div class="box-informacoes">
@@ -89,6 +88,8 @@
         <div>
           <p id="visualizacao">Clique para mostrar os detalhes da visualização</p>
           <div class=" mt-4 mb-1 ">
+
+
             <a href="https://www.google.com/maps?q={{anuncio.cep}}" target="_blank" class="rounded h-12 w-48 text-md text-white color-bg p-2">
               Visualizar mapa
           </a>

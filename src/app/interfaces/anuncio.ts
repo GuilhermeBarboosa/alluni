@@ -1,12 +1,20 @@
 import { Defaultdto } from './defaultdto';
-export interface Anuncio extends Defaultdto{
-  id?: number ;
-  dsin : string;
-  valor : number;
-  ddet : string;
+export interface Anuncio extends Defaultdto {
+  id?: number;
+  dsin: string;
+  valor: number;
+  ddet: string;
+  qtd_banheiro: number;
+  qtd_quarto: number;
+  wifi: boolean;
+  ar: boolean;
+  manutencao: boolean;
+  limpeza: boolean;
+  fumantes: boolean;
+  criancas: boolean;
   caminho: string;
   cep: string;
-  rua : string;
+  rua: string;
   bairro: string;
   complemento: string;
   cidade: string;

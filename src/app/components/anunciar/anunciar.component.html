@@ -11,16 +11,14 @@
 
 <form [formGroup]="anunciarForm">
 
-<form>
-
   <div class="grid grid-flow-row-dense grid-cols-3">
       <div class="col-span-2 p-3">
           <label for="titulo" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do anúncio:</label>
-          <input formControlName="titulo" type="text" id="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <input formControlName="dsin" type="text" id="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
       </div>
       <div class="p-3">
           <label for="preco" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preço:</label>
-          <input formControlName="preco" type="number" id="preco" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <input formControlName="valor" type="number" id="preco" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
       </div>
   </div>
 
@@ -69,7 +67,7 @@
 
     <div class="p-3">
       <label for="detalhes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Detalhes:</label>
-      <input type="text" formControlName="detalhes" id="detalhes" class="w-full h-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700">
+      <input type="text" formControlName="ddet" id="detalhes" class="w-full h-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700">
     </div>
   </div>
 
@@ -79,29 +77,29 @@
 
     <p class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Quantidade de quartos</p>
     <div class="flex items-center mb-4">
-      <input id="1" type="radio" value="1" name="quartos" formControlName="quartos" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="1" type="radio" value="1" name="quartos" formControlName="qtd_quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="1" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">1</label>
 
-      <input id="2" type="radio" value="2" name="quartos" formControlName="quartos" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="2" type="radio" value="2" name="quartos" formControlName="qtd_quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="2" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">2</label>
 
-      <input id="3" type="radio" value="3" name="quartos" formControlName="quartos" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="3" type="radio" value="3" name="quartos" formControlName="qtd_quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="3" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">3</label>
 
-      <input id="4" type="radio" value="4" name="quartos" formControlName="quartos" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="4" type="radio" value="4" name="quartos" formControlName="qtd_quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="4" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">4+</label>
     </div>
 
 
     <p class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Quantidade de banheiros</p>
     <div class="flex items-center mb-4">
-      <input id="1" type="radio" value="1" name="banheiros" formControlName="banheiros" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="1" type="radio" value="1" name="banheiros" formControlName="qtd_banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="1" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">1</label>
 
-      <input id="2" type="radio" value="2" name="banheiros" formControlName="banheiros" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="2" type="radio" value="2" name="banheiros" formControlName="qtd_banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="2" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">2</label>
 
-      <input id="3" type="radio" value="3" name="banheiros" formControlName="banheiros" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="3" type="radio" value="3" name="banheiros" formControlName="qtd_banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="3" class="ml-2 mr-2 text-sm font-medium text-gray-900 dark:text-gray-300">3</label>
     </div>
   </div>
@@ -182,10 +180,10 @@
     <div class="block mb-4">
       <p class="text-sm font-small text-gray-900 dark:text-white pr-10">Aceita fumantes?</p>
 
-      <input id="fumar" type="radio" value="true" name="fumar" formControlName="fumar" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+      <input id="fumar" type="radio" value="true" name="fumar" formControlName="fumantes" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
       <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sim</label>
 
-      <input id="fumar" type="radio" value="false" name="fumar" formControlName="fumar" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
+      <input id="fumar" type="radio" value="false" name="fumar" formControlName="fumantes" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
       <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Não</label>
     </div>
 

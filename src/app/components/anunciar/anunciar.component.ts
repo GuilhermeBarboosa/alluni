@@ -40,10 +40,34 @@ export class AnunciarComponent implements OnInit {
   }
 
   createAnuncio(){
-    if(this.anunciarForm.valid){
-      let json = {...this.anunciarForm.value};
-      json.user_id = this.user.getItem("@ID");
-      
+    if(this.anunciarForm.valid){    
+      let json = {
+        "dsin": this.anunciarForm.value.dsin,
+        "valor": this.anunciarForm.value.valor,
+        "ddet": this.anunciarForm.value.ddet,
+        "qtd_banheiro": this.anunciarForm.value.qtd_banheiro,
+        "qtd_quarto": this.anunciarForm.value.qtd_quarto,
+        "wifi": this.anunciarForm.value.wifi,
+        "ar": this.anunciarForm.value.ar,
+        "manutencao": this.anunciarForm.value.manutencao,
+        "limpeza": this.anunciarForm.value.limpeza,
+        "fumantes": this.anunciarForm.value.fumantes,
+        "criancas": this.anunciarForm.value.criancas,
+        "fotoID": "1",
+        "userID": this.user.getItem("@ID"),
+        "endereco": {
+          "cep": this.anunciarForm.value.cep,
+          "rua": this.anunciarForm.value.logradouro,
+          "bairro": this.anunciarForm.value.bairro,
+          "cidade": this.anunciarForm.value.cidade,
+          "pais": "Brasil",
+          "referencia": this.anunciarForm.value.referencia,
+          "complemento": this.anunciarForm.value.complemento
+        },
+        "locacaoID": "1"
+      }
+
+      console.log(json);
       alert("deu bom");
       this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {

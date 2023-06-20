@@ -53,8 +53,7 @@ export class AnunciarComponent implements OnInit {
         "limpeza": this.anunciarForm.value.limpeza,
         "fumantes": this.anunciarForm.value.fumantes,
         "criancas": this.anunciarForm.value.criancas,
-        "fotoID": "1",
-        "userID": this.user.getItem("@ID"),
+        "userID": 1,
         "endereco": {
           "cep": this.anunciarForm.value.cep,
           "rua": this.anunciarForm.value.logradouro,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
 import { Anuncio } from 'src/app/interfaces/anuncio';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private anuncioService: AnuncioService, private router: Router) { }
 
   arrayAnuncio: Anuncio[];
+
   p: number = 1;
 
   ngOnInit() {
@@ -22,5 +23,9 @@ export class HomeComponent implements OnInit {
         this.arrayAnuncio = json.data;
       }
     )
+  }
+
+  reciverFeedback(array: Anuncio[]) {
+    this.arrayAnuncio = array;
   }
 }

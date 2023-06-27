@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Anuncio } from 'src/app/interfaces/anuncio';
 import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
@@ -12,6 +12,7 @@ export class SidebarFiltrosComponent implements OnInit {
   buscaForm: FormGroup = Object.create(null);
 
   @Input() arrayAnuncio: Anuncio[];
+  @Output() findAnuncio = new EventEmitter();
 
   constructor( private anuncioService: AnuncioService) {}
 
@@ -35,14 +36,30 @@ export class SidebarFiltrosComponent implements OnInit {
   }
 
   findAnuncios(){
-    console.log(this.buscaForm.value)
-    this.anuncioService.getAnuncios(this.buscaForm.value).subscribe(
+    let params : any = {
+      "valor": this.buscaForm.value.valor,
+      "valorMinimo": this.buscaForm.value.valorMinimo,
+      "valorMaximo": this.buscaForm.value.valorMaximo,
+      "qtd_banheiro": this.buscaForm.value.qtd_banheiro,
+      "qtd_quarto": this.buscaForm.value.qtd_quarto,
+      "wifi": this.buscaForm.value.wifi,
+      "ar": this.buscaForm.value.ar,
+      "manutencao": this.buscaForm.value.manutencao,
+      "limpeza": this.buscaForm.value.limpeza,
+      "fumantes": this.buscaForm.value.fumantes,
+      "criancas": this.buscaForm.value.criancas,
+    }
+    this.anuncioService.getAnunciosWithParams(params).subscribe(
       (res) => {
         console.log(res)
         var json = JSON.parse(JSON.stringify(res));
         this.arrayAnuncio = json.data;
+
+        this.findAnuncio.emit(this.arrayAnuncio);
       }
     )
   }
+
+
 
 }

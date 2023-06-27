@@ -19,8 +19,8 @@ constructor(
     return this.http.get(`${environment.api}/anuncios/`);
   }
 
-  getAnuncios(params: any){
+  getAnunciosWithParams(params: Object){
     console.log(params)
-    return this.http.get(`${environment.api}/anuncios/`, params);
+    return this.http.post(`${environment.api}/anuncios/params`, params);
   }
 }

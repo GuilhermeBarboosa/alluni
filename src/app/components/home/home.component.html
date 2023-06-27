@@ -13,8 +13,12 @@
 >
   <div>
     <div class="my-4 mt-0">
-      <app-sidebar-filtros [arrayAnuncio]="arrayAnuncio"></app-sidebar-filtros>
+      <app-sidebar-filtros [arrayAnuncio]="arrayAnuncio" (findAnuncio)="reciverFeedback($event)"></app-sidebar-filtros>
     </div>
+  </div>
+
+  <div *ngIf="arrayAnuncio.length == 0">
+    <h2>Nenhum anúncio encontrado</h2>
   </div>
 
   <div *ngIf="arrayAnuncio != null">
@@ -35,7 +39,7 @@
       </div>
     </div>
 
-    <div class="mt-4">
+    <div *ngIf="arrayAnuncio.length != 0" class="mt-4">
       <pagination-controls
         class="mt-auto w-full justify-center flex"
         (pageChange)="p = $event"

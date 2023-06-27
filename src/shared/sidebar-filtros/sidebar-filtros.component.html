@@ -1,54 +1,95 @@
 <aside id="default-sidebar" class="rounded-lg pt-0 sm:p-5 sm:pt-0" aria-label="Sidebar" style="width: 100%;">
   <div class="sidebar-filtros px-5 py-5 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-lg">
 
-    <form>
+    <form [formGroup]="buscaForm" *ngIf="buscaForm">
       <p class="text-xl text-gray-300 font-medium ">Filtros</p>
       <div class="mb-6 mt-2">
-          <div class="my-5 ">
+          <div class="my-3 ">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Insira valor</label>
 
             <div class="flex">
-              <input type="number" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" min="100">
+              <input formControlName="valorMinimo" type="number" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" min="100">
               <p class="flex items-center justify-center p-2 text-md font-medium text-white"> até </p>
-              <input type="number" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" min="100">
+              <input formControlName="valorMaximo" type="number" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" min="100">
             </div>
 
           </div>
-          <div class="my-5">
+          <div class="my-3">
+            <label for="first_name" class="block mb-2 text-sm font-medium text-white">Banheiros:</label>
+            <div class="flex">
+              <div class="flex items-center mr-2">
+                <input id="default-radio-1" type="radio" value="1" formControlName="banheiro" name="banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="banheiro-1" class="ml-1 text-sm font-medium text-white">1</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="banheiro-2" type="radio" value="2" formControlName="banheiro" name="banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="banheiro-2" class="ml-1 text-sm font-medium text-white">2</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="banheiro-3" type="radio" value="3" formControlName="banheiro" name="banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="banheiro-3" class="ml-1 text-sm font-medium text-white">3</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="banheiro-4" type="radio" value="4" formControlName="banheiro" name="banheiro" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="banheiro-4" class="ml-1 text-sm font-medium text-white">4</label>
+              </div>
+            </div>
+          </div>
+          <div class="my-3">
+            <label for="first_name" class="block mb-2 text-sm font-medium text-white">Quartos</label>
+            <div class="flex">
+              <div class="flex items-center mr-2">
+                <input id="default-radio-1" type="radio" value="1" formControlName="quarto" name="quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="quarto-1" class="ml-1 text-sm font-medium text-white">1</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="quarto-2" type="radio" value="2" formControlName="quarto" name="quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="quarto-2" class="ml-1 text-sm font-medium text-white">2</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="quarto-3" type="radio" value="3" formControlName="quarto" name="quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="quarto-3" class="ml-1 text-sm font-medium text-white">3</label>
+              </div>
+              <div class="flex items-center mr-2">
+                <input id="quarto-4" type="radio" value="4" formControlName="quarto" name="quarto" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+                <label for="quarto-4" class="ml-1 text-sm font-medium text-white">4</label>
+              </div>
+            </div>
+          </div>
+          <div class="my-3">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Comodidade</label>
             <div class="flex items-center mb-2">
-              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+              <input id="default-checkbox" type="checkbox" value="true" formControlName="wifi" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">Wifi</label>
             </div>
             <div class="flex items-center mb-2">
-              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
-              <label for="checked-checkbox" class="ml-2 text-sm font-medium text-white ">Ar condicionado</label>
+              <input id="checkbox" type="checkbox" value="true" formControlName="ar" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+              <label for="checkbox" class="ml-2 text-sm font-medium text-white ">Ar condicionado</label>
             </div>
-
           </div>
-          <div class="my-5">
+          <div class="my-3">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Serviços</label>
             <div class="flex items-center mb-2">
-              <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+              <input id="default-checkbox" type="checkbox" value="true" formControlName="manutencao" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
               <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">Manutenção</label>
             </div>
             <div class="flex items-center mb-2">
-              <input checked id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
-              <label for="checked-checkbox" class="ml-2 text-sm font-medium text-white ">Limpeza</label>
+              <input id="checkbox" type="checkbox" value="true" formControlName="limpeza" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2">
+              <label for="checkbox" class="ml-2 text-sm font-medium text-white ">Limpeza</label>
             </div>
 
           </div>
 
-          <div class="my-5">
+          <div class="my-3">
             <label for="first_name" class="block mb-2 text-sm font-medium text-white">Regras</label>
 
             <div>
               <label for="first_name" class="block mb-2 text-sm font-medium text-white">Fumantes</label>
               <div class="flex items-center mb-2">
-                <input id="fumar" type="radio" value="true" name="fumar" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+                <input id="fumar" type="radio" value="true" name="fumar" formControlName="fumantes" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
                 <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Sim</label>
 
-                <input id="fumar" type="radio" value="false" name="fumar" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
+                <input id="fumar" type="radio" value="false" name="fumar" formControlName="fumantes" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
                 <label for="fumar" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Não</label>
               </div>
             </div>
@@ -57,10 +98,10 @@
               <label for="first_name" class="block mb-2 text-sm font-medium text-white">Crianças</label>
 
               <div class="flex items-center mb-2">
-                  <input id="criancas" type="radio" value="true" name="criancas" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
+                  <input id="criancas" type="radio" value="true" name="criancas" formControlName="criancas" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2">
                   <label for="criancas" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Sim</label>
 
-                  <input id="criancas" type="radio" value="false" name="criancas" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
+                  <input id="criancas" type="radio" value="false" name="criancas" formControlName="criancas" class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2">
                   <label for="criancas" class="mr-5 ml-2 text-sm font-medium text-white dark:text-gray-300">Não</label>
               </div>
             </div>
@@ -68,7 +109,7 @@
           </div>
 
       </div>
-      <button type="submit" style="width: 100%;" class="text-white bg-green-df focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Pesquisar</button>
+      <button (click)="findAnuncios()" type="submit" style="width: 100%;" class="text-white bg-green-df focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Pesquisar</button>
   </form>
 
   </div>

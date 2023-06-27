@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
     this.anuncioService.getByAll().subscribe(
       (res: any) => {
         var json = JSON.parse(JSON.stringify(res));
-        console.log(json.data);
         this.arrayAnuncio = json.data;
       }
     )

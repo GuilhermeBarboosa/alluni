@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-anunciar',
@@ -11,7 +12,7 @@ import { LocalStorageService } from 'src/shared/services/local-storage.service';
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
   
-  constructor(private anuncioS: AnunciarService, private user: LocalStorageService) { }
+  constructor(private anuncioS: AnunciarService, private user: LocalStorageService, private http: HttpClient) { }
   
   ngOnInit() {
     this.createFormAnuncio();
@@ -21,6 +22,7 @@ export class AnunciarComponent implements OnInit {
     this.anunciarForm = new FormGroup({
       dsin: new FormControl('', [Validators.required]),
       valor: new FormControl('', [Validators.required]),
+      foto: new FormControl('', [Validators.required]),
       ddet: new FormControl(''),
       qtd_banheiro: new FormControl('', [Validators.required]),
       qtd_quarto: new FormControl('', [Validators.required]),
@@ -66,9 +68,13 @@ export class AnunciarComponent implements OnInit {
         "locacaoID": "1"
       }
 
-      console.log(json);
+      const formData = new FormData();
+      formData.append('file', this.anunciarForm.value.foto);
+      formData.append('id', '1');
+
       alert("deu bom");
-      this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      this.anuncioS.createFoto(formData).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      // this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
       alert('deu ruim');
     }

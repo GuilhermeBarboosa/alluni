@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,5 +13,10 @@ export class AnunciarService {
   create(anunciar:any): Observable<void> {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.post<void>("http://localhost:8080/api/anuncios", anunciar, { headers: headers });
+  }
+
+  createFoto(foto:FormData): Observable<FormData> {
+    const headers = {'Content-Type': 'multipart/form-data'};
+    return this.http.post<FormData>("http://localhost:8080/api/fotos", foto, { headers: headers });
   }
 }

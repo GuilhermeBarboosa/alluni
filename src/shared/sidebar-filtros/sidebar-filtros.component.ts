@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
 
 @Component({
   selector: 'app-sidebar-filtros',
@@ -9,28 +10,34 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SidebarFiltrosComponent implements OnInit {
   buscaForm: FormGroup = Object.create(null);
 
-  constructor() { }
+  constructor( private anuncioService: AnuncioService) {}
 
   ngOnInit() {
     this.createFormBusca();
   }
   createFormBusca() {
     this.buscaForm = new FormGroup({
+      valor: new FormControl(''),
       valorMinimo : new FormControl(''),
       valorMaximo : new FormControl(''),
-      banheiro: new FormControl('1'),
-      quarto: new FormControl('1'),
+      qtd_banheiro: new FormControl(''),
+      qtd_quarto: new FormControl(''),
       wifi: new FormControl(''),
       ar: new FormControl(''),
       manutencao: new FormControl(''),
       limpeza: new FormControl(''),
-      fumantes: new FormControl('false'),
-      criancas: new FormControl('false'),
+      fumantes: new FormControl(''),
+      criancas: new FormControl(''),
     });
   }
 
   findAnuncios(){
     console.log(this.buscaForm.value)
+    this.anuncioService.getAnuncios(this.buscaForm.value).subscribe(
+      (res) => {
+        console.log(res)
+      }
+    )
   }
 
 }

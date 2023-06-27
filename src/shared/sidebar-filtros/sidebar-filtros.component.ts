@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Anuncio } from 'src/app/interfaces/anuncio';
 import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
 })
 export class SidebarFiltrosComponent implements OnInit {
   buscaForm: FormGroup = Object.create(null);
+
+  @Input() arrayAnuncio: Anuncio[];
 
   constructor( private anuncioService: AnuncioService) {}
 
@@ -36,6 +39,8 @@ export class SidebarFiltrosComponent implements OnInit {
     this.anuncioService.getAnuncios(this.buscaForm.value).subscribe(
       (res) => {
         console.log(res)
+        var json = JSON.parse(JSON.stringify(res));
+        this.arrayAnuncio = json.data;
       }
     )
   }

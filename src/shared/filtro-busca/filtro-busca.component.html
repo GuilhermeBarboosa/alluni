@@ -1,23 +1,16 @@
 <div>
-  <div class="text-center p-5 container">
+  <div class="text-center p-5 pt-0 container">
     <h1 class="text-3xl font-bold text-gray-900">Encontre o melhor quarto mais próximo de você</h1>
-    <div class="mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+    <div class="mx-10 mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
 
-        <div class="mt-4 mb-1 lg:col-span-2 sm:col-span-2">
-          <input type="text"
-          placeholder="Estado"
-          [formControl]="formEstado"
-          class="focus-green bg-gray-50 border-2 border-black text-sm rounded-lg block w-full p-2.5">
-        </div>
+        <input type="text" placeholder="Cidade" id="cidade" class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 h-12 teste" matInput [formControl]="campoAutocompletar1" [matAutocomplete]="auto1">
+        <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="selecionarOpcao1($event)">
+          <mat-option *ngFor="let opcao of filtrarOpcoes1(campoAutocompletar1.value)" [value]="opcao">
+            {{ opcao }}
+          </mat-option>
+        </mat-autocomplete>
 
-        <div class=" mt-4 mb-1 lg:col-span-2 sm:col-span-1">
-          <input type="text"
-          placeholder="Cidade"
-          [formControl]="formCidade"
-          class="focus-green bg-gray-50 border-2 border-black text-sm rounded-lg block w-full p-2.5">
-        </div>
-
-        <div class=" m-10 mt-4 mb-1">
+        <div class="">
           <button class="rounded-xl h-12 w-48 bg-green-500 font-bold text-lg text-white relative overflow-hidden">
             Pesquisar
         </button>

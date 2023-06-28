@@ -10,3 +10,12 @@
   border-color: #04D361 !important;
 }
 
+.teste{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin: auto;
+
+}

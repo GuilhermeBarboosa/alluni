@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {Component, Injectable, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -10,13 +11,18 @@ import {startWith, map} from 'rxjs/operators';
   styleUrls: ['./filtro-busca.component.css']
 })
 export class FiltroBuscaComponent implements OnInit {
-  opcoesAutocompletar1: string[] = ['Uberaba', 'Uberlândia', 'Contagem'];
-  // opcoesAutocompletar2: string[] = ['Opção A', 'Opção B', 'Opção C'];
+   opcoesAutocompletar1: string[];
   campoAutocompletar1 = new FormControl();
   campoAutocompletar2 = new FormControl();
 
-  ngOnInit() {
+  constructor(private http: HttpClient){
 
+  }
+
+  ngOnInit() {
+    this.http.get<any>('assets/cidades.json').subscribe((res: any[]) => {
+      this.opcoesAutocompletar1 = res.map((cidade: any) => cidade.nome);
+    });
   }
 
   selecionarOpcao1(event: MatAutocompleteSelectedEvent): void {
@@ -29,11 +35,13 @@ export class FiltroBuscaComponent implements OnInit {
 
   filtrarOpcoes1(valor: string): string[] {
     if (!valor) {
-      return this.opcoesAutocompletar1;
+      return [];
+    }else if( valor.length >= 3 ){
+      return this.opcoesAutocompletar1.filter(opcao =>
+        opcao.toLowerCase().includes(valor.toLowerCase())
+      );
     }
-    return this.opcoesAutocompletar1.filter(opcao =>
-      opcao.toLowerCase().includes(valor.toLowerCase())
-    );
+    return [];
   }
 
   // filtrarOpcoes2(valor: string): string[] {

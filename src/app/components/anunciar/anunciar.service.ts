@@ -12,7 +12,6 @@ export class AnunciarService {
 
   create(anunciar:any): Observable<void> {
     let headers = {'Content-Type' : 'application/json'}
-    // headers.append('Content-Type', 'multipart/form-data');
     return this.http.post<void>("http://localhost:8080/api/anuncios", anunciar, { headers: headers });
   }
 

@@ -1,8 +1,9 @@
+import { FotoService } from './foto.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-anunciar',
@@ -18,8 +19,8 @@ export class AnunciarComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
     private anuncioS: AnunciarService,
+    private fotoService: FotoService,
      private user: LocalStorageService,
   ) {
     this.photoUploadForm = this.formBuilder.group({
@@ -28,27 +29,12 @@ export class AnunciarComponent implements OnInit{
     });
   }
 
-  onSubmit() {
-    // const headers = new HttpHeaders();
-    // headers.append('Content-Type', 'multipart/form-data');
-
-    // this.http.post('http://localhost:8080/api/fotos', this.formData, { headers: headers }).subscribe(
-    //   (res) => console.log(res),
-    //   (err) => console.error(err)
-    // );
+  postFoto() {
+    this.fotoService.create(this.formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.error(err)
+    );
   }
-
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    if(this.selectedFile != undefined){
-      this.formData.append('file', this.selectedFile);
-    }
-  }
-
-  //********************************************************* */
-
-
-
 
   ngOnInit() {
     this.createFormAnuncio();
@@ -101,7 +87,6 @@ export class AnunciarComponent implements OnInit{
     //       "complemento": this.anunciarForm.value.complemento
     //     },
     //     "locacaoID": "1",
-    //     "foto": this.formData.getAll('file')
     //   }
 
 
@@ -130,12 +115,91 @@ export class AnunciarComponent implements OnInit{
         "locacaoID": "1"
       }
 
-      this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
+      console.log(this.formData.getAll('file'))
+      this.anuncioS.create(json).subscribe(
+        {
+          next: data => {
+            let res = new AnucioResponse(data)
+            console.log(data)
+            this.formData.append('anuncioId', String(res.id))
+            this.postFoto();
+          },
+          error: error => {
+            console.error(error)
+          }
+        }
+      );
 
-    // } else {
-    //   alert('deu ruim');
-    // }
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    if(this.selectedFile != undefined){
+      this.formData.append('file', this.selectedFile);
+    }
+  }
 
+}
+
+class AnucioResponse implements AnucioResponse{
+
+  id: Number
+  dsin: String
+  valor: Number
+  ddet: String
+  qtd_banheiro: Number
+  qtd_quarto: Number
+  wifi: Boolean
+  ar: Boolean
+  manutencao: Boolean
+  limpeza: Boolean
+  fumantes: Boolean
+  criancas: Boolean
+  userId: Number
+  name: String
+  email: String
+  enderecoId: Number
+  cep: String
+  rua: String
+  bairro: String
+  cidade: String
+  pais: String
+  referencia: String
+  complemento: String
+  locacaoId: Number
+  locacao: String
+  nameLocacao: String
+  emailLocacao: String
+  fotos: Array<String>
+
+  constructor(response:any){
+    this.id = response.id
+    this.dsin = response.dsin,
+    this.valor = response.valor,
+    this.ddet = response.ddet,
+    this.qtd_banheiro = response.qtd_banheiro,
+    this.qtd_quarto = response.qtd_quarto,
+    this.wifi = response.wifi,
+    this.ar = response.ar,
+    this.manutencao = response.manutencao,
+    this.limpeza = response.limpeza,
+    this.fumantes = response.fumantes,
+    this.criancas = response.criancas,
+    this.userId = response.userId,
+    this.name = response.name,
+    this.email = response.email,
+    this.enderecoId = response.enderecoId,
+    this.cep = response.cep,
+    this.rua = response.rua,
+    this.bairro = response.bairro,
+    this.cidade = response.cidade,
+    this.pais = response.pais,
+    this.referencia = response.referencia,
+    this.complemento = response.complemento,
+    this.locacaoId = response.locacaoId,
+    this.locacao = response.locacao,
+    this.nameLocacao = response.nameLocacao,
+    this.emailLocacao = response.emailLocacao,
+    this.fotos = response.fotos
+  }
 }

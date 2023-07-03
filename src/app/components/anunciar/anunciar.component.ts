@@ -43,38 +43,48 @@ export class AnunciarComponent implements OnInit {
 
   createAnuncio(){
     if(this.anunciarForm.valid){    
-      let json = {
-        "dsin": this.anunciarForm.value.dsin,
-        "valor": this.anunciarForm.value.valor,
-        "ddet": this.anunciarForm.value.ddet,
-        "qtd_banheiro": this.anunciarForm.value.qtd_banheiro,
-        "qtd_quarto": this.anunciarForm.value.qtd_quarto,
-        "wifi": this.anunciarForm.value.wifi,
-        "ar": this.anunciarForm.value.ar,
-        "manutencao": this.anunciarForm.value.manutencao,
-        "limpeza": this.anunciarForm.value.limpeza,
-        "fumantes": this.anunciarForm.value.fumantes,
-        "criancas": this.anunciarForm.value.criancas,
-        "userID": 1,
-        "endereco": {
-          "cep": this.anunciarForm.value.cep,
-          "rua": this.anunciarForm.value.logradouro,
-          "bairro": this.anunciarForm.value.bairro,
-          "cidade": this.anunciarForm.value.cidade,
-          "pais": "Brasil",
-          "referencia": this.anunciarForm.value.referencia,
-          "complemento": this.anunciarForm.value.complemento
-        },
-        "locacaoID": "1"
+      
+      const fileInput: HTMLInputElement = document.getElementById('dropzone-file') as HTMLInputElement;
+      const file: File | null = fileInput?.files?.[0] || null;
+    
+      if (file) {
+        const reader: FileReader = new FileReader();
+        reader.onloadend = () => {
+          const base64data = reader.result as string;
+          const json = {
+            "dsin": this.anunciarForm.value.dsin,
+            "valor": this.anunciarForm.value.valor,
+            "foto": base64data,
+            "ddet": this.anunciarForm.value.ddet,
+            "qtd_banheiro": this.anunciarForm.value.qtd_banheiro,
+            "qtd_quarto": this.anunciarForm.value.qtd_quarto,
+            "wifi": this.anunciarForm.value.wifi,
+            "ar": this.anunciarForm.value.ar,
+            "manutencao": this.anunciarForm.value.manutencao,
+            "limpeza": this.anunciarForm.value.limpeza,
+            "fumantes": this.anunciarForm.value.fumantes,
+            "criancas": this.anunciarForm.value.criancas,
+            "userID": 1,
+            "endereco": {
+              "cep": this.anunciarForm.value.cep,
+              "rua": this.anunciarForm.value.logradouro,
+              "bairro": this.anunciarForm.value.bairro,
+              "cidade": this.anunciarForm.value.cidade,
+              "pais": "Brasil",
+              "referencia": this.anunciarForm.value.referencia,
+              "complemento": this.anunciarForm.value.complemento
+            },
+            "locacaoID": "1"
+          };
+
+          this.anuncioS.create(json).subscribe({
+            next: (res) => { console.log(res) },
+            error: (error) => { console.log(error) }
+          });
+        };
+
+        reader.readAsDataURL(file);
       }
-
-      const formData = new FormData();
-      formData.append('file', this.anunciarForm.value.foto);
-      formData.append('id', '1');
-
-      alert("deu bom");
-      this.anuncioS.createFoto(formData).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
-      // this.anuncioS.create(json).subscribe({next: (res) => {console.log(res)}, error: (error) => {console.log(error)}})
     } else {
       alert('deu ruim');
     }

@@ -7,13 +7,17 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-anunciar',
   templateUrl: './anunciar.component.html',
-  styleUrls: ['./anunciar.component.css']
+  styleUrls: ['./anunciar.component.css'],
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
-  
-  constructor(private anuncioS: AnunciarService, private user: LocalStorageService, private http: HttpClient) { }
-  
+
+  constructor(
+    private anuncioS: AnunciarService,
+    private user: LocalStorageService,
+    private http: HttpClient
+  ) {}
+
   ngOnInit() {
     this.createFormAnuncio();
   }
@@ -41,53 +45,58 @@ export class AnunciarComponent implements OnInit {
     });
   }
 
-  createAnuncio(){
-    if(this.anunciarForm.valid){    
-      
-      const fileInput: HTMLInputElement = document.getElementById('dropzone-file') as HTMLInputElement;
+  createAnuncio() {
+    if (this.anunciarForm.valid) {
+      const fileInput: HTMLInputElement = document.getElementById(
+        'dropzone-file'
+      ) as HTMLInputElement;
       const file: File | null = fileInput?.files?.[0] || null;
-    
+
       if (file) {
         const reader: FileReader = new FileReader();
         reader.onloadend = () => {
           const base64data = reader.result as string;
           const json = {
-            "dsin": this.anunciarForm.value.dsin,
-            "valor": this.anunciarForm.value.valor,
-            "foto": base64data,
-            "ddet": this.anunciarForm.value.ddet,
-            "qtd_banheiro": this.anunciarForm.value.qtd_banheiro,
-            "qtd_quarto": this.anunciarForm.value.qtd_quarto,
-            "wifi": this.anunciarForm.value.wifi,
-            "ar": this.anunciarForm.value.ar,
-            "manutencao": this.anunciarForm.value.manutencao,
-            "limpeza": this.anunciarForm.value.limpeza,
-            "fumantes": this.anunciarForm.value.fumantes,
-            "criancas": this.anunciarForm.value.criancas,
-            "userID": 1,
-            "endereco": {
-              "cep": this.anunciarForm.value.cep,
-              "rua": this.anunciarForm.value.logradouro,
-              "bairro": this.anunciarForm.value.bairro,
-              "cidade": this.anunciarForm.value.cidade,
-              "pais": "Brasil",
-              "referencia": this.anunciarForm.value.referencia,
-              "complemento": this.anunciarForm.value.complemento
+            dsin: this.anunciarForm.value.dsin,
+            valor: this.anunciarForm.value.valor,
+            fotos: [base64data],
+            ddet: this.anunciarForm.value.ddet,
+            qtd_banheiro: this.anunciarForm.value.qtd_banheiro,
+            qtd_quarto: this.anunciarForm.value.qtd_quarto,
+            wifi: this.anunciarForm.value.wifi,
+            ar: this.anunciarForm.value.ar,
+            manutencao: this.anunciarForm.value.manutencao,
+            limpeza: this.anunciarForm.value.limpeza,
+            fumantes: this.anunciarForm.value.fumantes,
+            criancas: this.anunciarForm.value.criancas,
+            userID: 1,
+            endereco: {
+              cep: this.anunciarForm.value.cep,
+              rua: this.anunciarForm.value.logradouro,
+              bairro: this.anunciarForm.value.bairro,
+              cidade: this.anunciarForm.value.cidade,
+              pais: 'Brasil',
+              referencia: this.anunciarForm.value.referencia,
+              complemento: this.anunciarForm.value.complemento,
             },
-            "locacaoID": "1"
+            locacaoID: '1',
           };
-
+          console.log(json.fotos);
           this.anuncioS.create(json).subscribe({
-            next: (res) => { console.log(res) },
-            error: (error) => { console.log(error) }
+            next: (res) => {
+              console.log(res);
+            },
+            error: (error) => {
+              console.log(error);
+            },
           });
         };
 
         reader.readAsDataURL(file);
       }
     } else {
+      console.log(this.anunciarForm.value);
       alert('deu ruim');
     }
   }
-
 }

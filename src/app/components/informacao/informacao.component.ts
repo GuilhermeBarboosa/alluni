@@ -41,8 +41,6 @@ export class InformacaoComponent implements OnInit {
       var json = JSON.parse(JSON.stringify(res));
       console.log(json)
       this.arrayFotos = json.data;
-
-      // console.log(this.arrayFotos);
     });
 
 

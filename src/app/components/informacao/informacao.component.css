@@ -1,49 +1,54 @@
-.box-preco h4{
-    margin: 5px 0px;
-    padding: 10px 20px;
-    color: #F4F4F4;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: #5F2EEA;
+.box-preco h4 {
+  margin: 5px 0px;
+  padding: 10px 20px;
+  color: #f4f4f4;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #5f2eea;
 }
 
 .box-informacoes {
-    padding: 30px 0px;
+  padding: 30px 0px;
 }
 
 .title-informacoes {
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: #5F2EEA;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #5f2eea;
 }
 
 .card-informacoes {
-    padding: 20px;
-    background-color: #F4F4F4;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
 .list-informacoes {
-    list-style-type: disc;
+  list-style-type: disc;
 }
 
 #card-contato {
-    color: #fff;
-    border-radius: 10px;
-    background-color: #5F2EEA;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #5f2eea;
 }
 
 .mr-16 {
-    margin-right: 4rem;
+  margin-right: 4rem;
 }
 
-.color-bg{
-  background-color: #5F2EEA;
+.color-bg {
+  background-color: #5f2eea;
 }
 
-.img{
+.img {
   height: 70%;
   width: 70%;
   margin: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
 }

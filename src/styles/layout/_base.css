@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.input-fail {
+  font-size: 13px;
+  font-weight: bold;
+  font-style: italic;
+  color: #dc3545;
+  margin-left: 10px;
+}
+
+.toolbar__button--filter {
+  background-color: #0077b6;
+}
+
+.toolbar__button--filter:hover {
+  background-color: #005d8f;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #0077b6;
+  border-color: #0077b6;
+  border-radius: 10px;
+}

@@ -22,6 +22,7 @@ import { NewPassword } from './newPassWord/newPassword.component';
 @NgModule({
   declarations: [LoginComponent, SignupComponent, ForgotPassword, NewPassword],
   imports: [
+    SharedModule,
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
     MatFormFieldModule,

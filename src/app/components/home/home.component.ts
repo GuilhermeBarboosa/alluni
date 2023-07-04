@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
       (res: any) => {
         var json = JSON.parse(JSON.stringify(res));
         this.arrayAnuncio = json.data;
+        console.log(this.arrayAnuncio)
       }
     )
   }

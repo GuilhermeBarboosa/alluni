@@ -14,6 +14,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from 'src/shared/shared.module';
 import { ForgotPassword } from './forgetPassword/forgotPassword.component';
 import { NewPassword } from './newPassWord/newPassword.component';
@@ -34,6 +35,7 @@ import { NewPassword } from './newPassWord/newPassword.component';
     MatProgressSpinnerModule,
     MatIconModule,
     HttpClientModule,
+    MatSelectModule,
   ],
 })
 export class AuthenticationModule {}

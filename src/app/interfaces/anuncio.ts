@@ -13,6 +13,7 @@ export interface Anuncio extends Defaultdto {
   fumantes: boolean;
   criancas: boolean;
   caminho: string;
+  fotos: string;
   cep: string;
   rua: string;
   bairro: string;

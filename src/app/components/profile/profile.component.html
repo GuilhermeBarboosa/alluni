@@ -18,7 +18,7 @@
         <input
           type="text"
           id="name"
-          value="Mauro Borges"
+          [value]="item.name"
           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         />
       </div>
@@ -27,7 +27,7 @@
         <input
           type="email"
           id="email"
-          value="mauro.borges@gmail.com"
+          [value]="item.email"
           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         />
       </div>
@@ -40,9 +40,18 @@
           id="gender"
           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         >
-          <option value="male">Masculino</option>
-          <option value="female">Feminino</option>
-          <option value="other">Outro</option>
+          <option value="male" [selected]="item.gender === 'M' ? true : false">
+            Masculino
+          </option>
+          <option
+            value="female"
+            [selected]="item.gender === 'F' ? true : false"
+          >
+            Feminino
+          </option>
+          <option value="other" [selected]="item.gender === 'O' ? true : false">
+            Outro
+          </option>
         </select>
       </div>
 
@@ -57,7 +66,12 @@
       </div>
 
       <div class="mt-10 flex justify-end">
-        <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Voltar</button>
+        <button
+          type="submit"
+          class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+          Voltar
+        </button>
       </div>
     </div>
   </div>

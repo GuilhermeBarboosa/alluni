@@ -1,9 +1,11 @@
 
-<div (click)="goToInfoAnuncio()" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div (click)="goToInfoAnuncio()" class="max-w-sm m-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-  <img class="rounded-t-lg" src="../assets/apartamento-design.jpg" alt="image-anuncio" />
+  <div >
+    <img class="rounded-t-lg" [src]="anuncio.fotos" alt="image-anuncio" />
+  </div>
 
-  <div class="p-5">
+  <div class="p-10 m-auto w-full h-full">
 
       <p class="mb-zero font-bold text-lg text-gray-900 text-green">{{anuncio.dsin}}</p>
 

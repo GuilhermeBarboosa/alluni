@@ -26,7 +26,6 @@ export class AuthenticationService {
   ) {}
 
   login(userName: string, password: string): Observable<any> {
-    console.log(userName, password);
     const header = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', `Basic ${environment.AUTHORIZATION_KEY}`);
@@ -39,7 +38,6 @@ export class AuthenticationService {
       })
       .pipe(
         tap((data) => {
-          console.log('AQQ', data.id);
           this.localStorageService.setItem(TOKEN_KEY, data.token);
           this.localStorageService.setItem(USERNAME_KEY, data.username);
           this.localStorageService.setItem(EMAIL_KEY, data.email);
@@ -81,7 +79,6 @@ export class AuthenticationService {
   }
 
   addUser(user: any): Observable<void> {
-    console.log('user', user);
     return this.httpClient.post<void>(`${environment.api}/users`, user);
   }
 

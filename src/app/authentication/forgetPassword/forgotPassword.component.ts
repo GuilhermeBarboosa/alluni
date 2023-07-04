@@ -17,7 +17,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class ForgotPassword {
   forgetPassword: FormGroup = Object.create(null);
   loading: boolean = false;
- 
+
 
   constructor(
     private router: Router,
@@ -39,8 +39,6 @@ export class ForgotPassword {
   esqueciSenha() {
     this.authService.forgetPassWord(this.forgetPassword?.get('email')?.value).subscribe({
       next: response => {
-       
-        console.log(response)
         this.dialogRef.close();
       },
       error: (error) => console.log(error)

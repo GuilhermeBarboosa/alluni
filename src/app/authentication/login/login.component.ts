@@ -59,10 +59,8 @@ export class LoginComponent implements OnInit {
 
     this.loginGoogleService.login(user).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.authenticationService.login(res.username, res.password).subscribe({
           next: (data) => {
-            console.log(data);
             console.log('Login efetuado com sucesso!');
             this.router.navigateByUrl('/home');
           }
@@ -100,7 +98,6 @@ export class LoginComponent implements OnInit {
         )
         .subscribe({
           next: (data) => {
-            console.log(data);
             console.log('Login efetuado com sucesso!');
             this.router.navigateByUrl('/home');
           },
@@ -124,7 +121,6 @@ export class LoginComponent implements OnInit {
 
   openModalEsqueciSenha() {
     this.modalService.open(ForgotPassword).beforeClosed().subscribe((response)=>{
-      console.log('kkkkkkk')
     })
   }
 }

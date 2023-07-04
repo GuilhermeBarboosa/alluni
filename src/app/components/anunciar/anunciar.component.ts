@@ -12,6 +12,7 @@ import { SnackbarService } from 'src/shared/services/snackbar.service';
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
+  nameFoto = '';
 
   constructor(
     private anuncioS: AnunciarService,
@@ -22,6 +23,11 @@ export class AnunciarComponent implements OnInit {
 
   ngOnInit() {
     this.createFormAnuncio();
+  }
+
+  onChange(){
+    this.nameFoto = this.anunciarForm.value.foto.replace(/^.*\\/, "");
+    this.nameFoto = "Imagem selecionada: " + this.nameFoto;
   }
 
   createFormAnuncio(): void {
@@ -84,14 +90,14 @@ export class AnunciarComponent implements OnInit {
             locacaoID: '1',
           };
           console.log(json);
-          // this.anuncioS.create(json).subscribe({
-          //   next: (res) => {
-          //     console.log(res);
-          //   },
-          //   error: (error) => {
-          //     console.log(error);
-          //   },
-          // });
+          this.anuncioS.create(json).subscribe({
+            next: (res) => {
+              console.log(res);
+            },
+            error: (error) => {
+              console.log(error);
+            },
+          });
         };
 
         reader.readAsDataURL(file);

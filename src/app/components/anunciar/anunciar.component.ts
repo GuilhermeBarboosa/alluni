@@ -83,15 +83,15 @@ export class AnunciarComponent implements OnInit {
             },
             locacaoID: '1',
           };
-          console.log(json.fotos);
-          this.anuncioS.create(json).subscribe({
-            next: (res) => {
-              console.log(res);
-            },
-            error: (error) => {
-              console.log(error);
-            },
-          });
+          console.log(json);
+          // this.anuncioS.create(json).subscribe({
+          //   next: (res) => {
+          //     console.log(res);
+          //   },
+          //   error: (error) => {
+          //     console.log(error);
+          //   },
+          // });
         };
 
         reader.readAsDataURL(file);

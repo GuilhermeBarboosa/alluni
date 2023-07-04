@@ -1,0 +1,62 @@
+.snack {
+  height: 115px;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: transparent !important;
+}
+
+.snack__container {
+  margin: 7px 0 7px 14px;
+}
+
+.snack--success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.snack--warning {
+  background-color: #ffc107;
+  color: #1a1a1a;
+}
+
+.snack--error {
+  background-color: #dc3545!important;
+  color: #fff;
+  
+}
+
+.snack h1 {
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 9px;
+}
+
+.snack p {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.snack button {
+  right: 20px;
+  position: absolute;
+  top: 26px;
+}
+
+.snack:hover button icon-close {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 1400px) {
+  .snack {
+    height: 120px;
+  }
+
+  .snack h1 {
+    margin-bottom: 12px;
+  }
+
+  .snack p {
+    font-size: 15px;
+  }
+}

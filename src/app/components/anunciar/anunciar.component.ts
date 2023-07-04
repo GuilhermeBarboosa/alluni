@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
 import { HttpClient } from '@angular/common/http';
+import { SnackbarService } from 'src/shared/services/snackbar.service';
 
 @Component({
   selector: 'app-anunciar',
@@ -14,6 +15,7 @@ export class AnunciarComponent implements OnInit {
 
   constructor(
     private anuncioS: AnunciarService,
+    private snackBar: SnackbarService,
     private user: LocalStorageService,
     private http: HttpClient
   ) {}
@@ -96,7 +98,7 @@ export class AnunciarComponent implements OnInit {
       }
     } else {
       console.log(this.anunciarForm.value);
-      alert('deu ruim');
+      this.snackBar.error('Preencha todos os campos obrigatórios');
     }
   }
 }

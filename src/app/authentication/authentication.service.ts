@@ -50,7 +50,11 @@ export class AuthenticationService {
 
   logout(): void {
     this.localStorageService.clear();
-    this.router.navigateByUrl('/home');
+
+    if(this.router.url == '/home')
+      location.reload()
+    else
+      this.router.navigateByUrl('/home')
   }
 
   isLogged(): boolean {

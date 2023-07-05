@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
@@ -8,7 +9,8 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 })
 export class ProfileComponent implements OnInit {
   item: any = null;
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService,
+              private router: Router,) {}
 
   ngOnInit(): void {
     this.loadUser();
@@ -27,6 +29,10 @@ export class ProfileComponent implements OnInit {
         },
       });
     }
+  }
+
+  voltar(){
+    this.router.navigateByUrl('home');
   }
 
   logout(){

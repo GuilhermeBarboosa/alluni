@@ -4,6 +4,7 @@ import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarService } from 'src/shared/services/snackbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anunciar',
@@ -16,13 +17,18 @@ export class AnunciarComponent implements OnInit {
 
   constructor(
     private anuncioS: AnunciarService,
+    private localStorage: LocalStorageService,
     private snackBar: SnackbarService,
-    private user: LocalStorageService,
-    private http: HttpClient
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.createFormAnuncio();
+
+    if(localStorage.getItem('TOKEN_KEY') == null){
+      this.snackBar.error('Você precisa estar logado para anunciar!');
+      this.router.navigate(['/authentication/login']);
+    }
   }
 
   onChange(){
@@ -77,7 +83,7 @@ export class AnunciarComponent implements OnInit {
             limpeza: this.anunciarForm.value.limpeza,
             fumantes: this.anunciarForm.value.fumantes,
             criancas: this.anunciarForm.value.criancas,
-            userID: 1,
+            userID: this.localStorage.getItem('ID_KEY'),
             endereco: {
               cep: this.anunciarForm.value.cep,
               rua: this.anunciarForm.value.logradouro,

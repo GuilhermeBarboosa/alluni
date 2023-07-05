@@ -28,4 +28,8 @@ export class ProfileComponent implements OnInit {
       });
     }
   }
+
+  logout(){
+    this.authenticationService.logout();
+  }
 }

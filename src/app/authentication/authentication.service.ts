@@ -25,12 +25,12 @@ export class AuthenticationService {
     private jwtService: JwtService
   ) {}
 
-  login(userName: string, password: string): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     const header = new HttpHeaders()
       .append('Content-Type', 'application/x-www-form-urlencoded')
       .append('Authorization', `Basic ${environment.AUTHORIZATION_KEY}`);
 
-    const body = `grant_type=password&username=${userName}&password=${password}`;
+    const body = `grant_type=password&email=${email}&password=${password}`;
 
     return this.httpClient
       .post<any>(`${environment.api}/auth/login`, body, {
@@ -50,7 +50,7 @@ export class AuthenticationService {
 
   logout(): void {
     this.localStorageService.clear();
-    this.router.navigateByUrl('/authentication/login');
+    this.router.navigateByUrl('/home');
   }
 
   isLogged(): boolean {

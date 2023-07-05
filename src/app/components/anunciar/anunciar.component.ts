@@ -25,7 +25,7 @@ export class AnunciarComponent implements OnInit {
   ngOnInit() {
     this.createFormAnuncio();
 
-    if(localStorage.getItem('TOKEN_KEY') == null){
+    if(localStorage.getItem('@TOKEN') == null){
       this.snackBar.error('Você precisa estar logado para anunciar!');
       this.router.navigate(['/authentication/login']);
     }
@@ -83,7 +83,7 @@ export class AnunciarComponent implements OnInit {
             limpeza: this.anunciarForm.value.limpeza,
             fumantes: this.anunciarForm.value.fumantes,
             criancas: this.anunciarForm.value.criancas,
-            userID: this.localStorage.getItem('ID_KEY'),
+            userID: this.localStorage.getItem('@ID'),
             endereco: {
               cep: this.anunciarForm.value.cep,
               rua: this.anunciarForm.value.logradouro,

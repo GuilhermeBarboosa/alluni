@@ -9,6 +9,7 @@ import { GoogleSigninService } from 'src/services/google-signin/google-signin.se
 import { LoginGoogleService } from 'src/services/login-google/login-google.service';
 import { ModalService } from 'src/shared/services/modal.service';
 import { ForgotPassword } from '../forgetPassword/forgotPassword.component';
+import { User } from '../../../services/login-google/login-google.service';
 
 @Component({
   selector: 'app-login',
@@ -48,28 +49,61 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  userResponse: any;
   async signIn() {
-    await this.signInService.signin();
 
-    let user = {
-      name: this.user.getBasicProfile().getName(),
-      email: this.user.getBasicProfile().getEmail(),
-      googleID: this.user.getBasicProfile().getId(),
-    };
+    Promise.resolve(this.signInService.signin()).then((user) => {
+      console.log("1")
+      this.userResponse ={
+        name: this.user.getBasicProfile().getName(),
+        email: this.user.getBasicProfile().getEmail(),
+        googleID: this.user.getBasicProfile().getId(),
+      }
+      this.ref.detectChanges();
+    }).then(() => {
+      console.log("2")
+      this.loginGoogleService.login(this.userResponse).subscribe({
+        next: (res: any) => {
+          console.log("2")
+          this.authenticationService.login(res.email, res.password).subscribe({
+            next: (data) => {
+              console.log('Login efetuado com sucesso!');
+              this.router.navigateByUrl('/home');
+            }
+          });
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    })
 
-    this.loginGoogleService.login(user).subscribe({
-      next: (res: any) => {
-        this.authenticationService.login(res.username, res.password).subscribe({
-          next: (data) => {
-            console.log('Login efetuado com sucesso!');
-            this.router.navigateByUrl('/home');
-          }
-        });
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+
+    // let user = await this.signInService.signin();
+
+    // let userResponse = {
+    //   name: this.user.getBasicProfile().getName(),
+    //   email: this.user.getBasicProfile().getEmail(),
+    //   googleID: this.user.getBasicProfile().getId(),
+    // };
+
+    // console.log(userResponse)
+    // this.loginGoogleService.login(user).subscribe({
+    //   next: (res: any) => {
+
+    //     console.log(res)
+    //     // // ARRUMAR GOOGLE
+    //     this.authenticationService.login(res.email, res.password).subscribe({
+    //       next: (data) => {
+    //         console.log('Login efetuado com sucesso!');
+    //         this.router.navigateByUrl('/home');
+    //       }
+    //     });
+    //   },
+    //   error: (error) => {
+    //     console.log(error);
+    //   },
+    // });
   }
 
   //deslogar com o google

@@ -21,12 +21,14 @@ export class GoogleSigninService implements OnInit {
 
     public async signin(){
     var auth2 = gapi.auth2.getAuthInstance();
+    let userResponse;
     await auth2
       .signIn({
         scope: 'https://www.googleapis.com/auth/gmail.readonly',
       })
       .then((user) => {
         console.log(user)
+        userResponse = user;
         this.subject.next(user);
       })
       .catch((error) => {
@@ -34,7 +36,7 @@ export class GoogleSigninService implements OnInit {
         this.subject.next(null!);
       });
 
-
+    return userResponse;
   }
 
   public signout() {

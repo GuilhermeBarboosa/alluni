@@ -9,3 +9,9 @@
 .text-green{
   color: #04D361;
 }
+
+.img{
+  width: 100% !important;
+  height: 30vh !important;
+  margin: auto !important;
+}

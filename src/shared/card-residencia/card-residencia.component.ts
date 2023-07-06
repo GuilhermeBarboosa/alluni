@@ -1,13 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, NgModule } from '@angular/core';
 import { Anuncio } from '../../app/interfaces/anuncio';
 import { Router } from '@angular/router';
 import { FotoService } from '../../app/services/fotos/foto.service';
+import { NgxMaskModule } from 'ngx-mask';
 
 @Component({
   selector: 'app-card-residencia',
   templateUrl: './card-residencia.component.html',
-  styleUrls: ['./card-residencia.component.css']
+  styleUrls: ['./card-residencia.component.css'],
 })
+
+
 export class CardResidenciaComponent implements OnInit {
 
   @Input() anuncio: Anuncio;

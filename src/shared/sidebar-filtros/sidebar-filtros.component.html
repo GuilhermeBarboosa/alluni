@@ -8,9 +8,9 @@
             <label for="valor" class="block mb-2 text-sm font-medium text-white">Insira valor</label>
 
             <div class="block">
-              <input formControlName="valorMinimo" type="number" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" min="100">
+              <input mask="00000" formControlName="valorMinimo" type="text" id="minimo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mínimo" >
               <p class="flex items-center justify-center p-2 text-md font-medium text-white"> até </p>
-              <input formControlName="valorMaximo" type="number" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" min="100">
+              <input mask="00000" formControlName="valorMaximo" type="text" id="maximo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-blue-500 block w-full p-2.5" placeholder="Máximo" >
             </div>
 
           </div>

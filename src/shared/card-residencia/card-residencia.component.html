@@ -12,8 +12,7 @@
       <p class="mb-zero font-normal text-black ">{{anuncio.bairro}} - {{anuncio.cidade}}</p>
 
       <div class="grid grid-cols-2 justify-between mx-auto">
-        <p class="font-normal text-gray-700  mb-zero items-center justify-left flex" mask="00000-000">{{anuncio.cep}}</p>
-        <!-- <img class="h-auto rounded-t-lg justify-between mx-auto" src="../assets/star.jpg" alt="star-descricao" width="100%" /> -->
+        <p class="font-normal text-gray-700  mb-zero items-center justify-left flex" mask="00000-000">{{anuncio.cep | mask : '00000-000'}}</p>
       </div>
 
   </div>

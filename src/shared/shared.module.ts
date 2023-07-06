@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './modules/angular-material.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 // const components = [
 //     MapComponent
@@ -22,6 +23,11 @@ const modules = [
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(
+      {
+        dropSpecialCharacters: false
+      }
+    ),
     ...modules
   ],
   exports: [

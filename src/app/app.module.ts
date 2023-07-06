@@ -31,6 +31,10 @@ import { GoogleSigninService } from 'src/services/google-signin/google-signin.se
 import { SharedModule } from 'src/shared/shared.module';
 import { SafePipeService } from 'src/services/safe-pipe.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +68,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatDialogModule,
     MatIconModule,
     MatAutocompleteModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false,
+    }),
     RouterModule.forRoot(Approutes),
     MatProgressSpinnerModule,
     HttpClientModule,

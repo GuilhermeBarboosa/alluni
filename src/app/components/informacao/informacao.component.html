@@ -40,7 +40,7 @@
       <div class="box-informacoes">
         <h3 class="title-informacoes">Localização:</h3>
         <div class="card-informacoes">
-          <h4 id="cep">Cep: <span>{{anuncio.cep}}</span></h4>
+          <h4 id="cep">Cep: <span>{{anuncio.cep | mask : '00000-000'}}</span></h4>
           <h4 id="logradouro">Logradouro: <span>{{anuncio.rua}}</span></h4>
           <h4 id="municipio">Município: <span>{{anuncio.cidade}}</span></h4>
           <h4 id="bairro">Bairro: <span>{{anuncio.bairro}}</span></h4>

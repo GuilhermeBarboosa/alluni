@@ -70,6 +70,10 @@
             <li *ngIf="anuncio.limpeza == true">Limpeza</li>
             <li *ngIf="anuncio.manutencao == true">Manutenção</li>
           </ul>
+
+          <p>
+            <span *ngIf="anuncio.ar == false && anuncio.wifi == false && anuncio.limpeza == false && anuncio.manutencao == false">O anunciante não informou as comodidades de seu imóvel anunciado. Você pode enviar uma mensagem para ele(a) para saber mais detalhes sobre a vaga.</span>
+          </p>
         </div>
       </div>
       <div class="box-informacoes">

@@ -10,6 +10,7 @@ import { LoginGoogleService } from 'src/services/login-google/login-google.servi
 import { ModalService } from 'src/shared/services/modal.service';
 import { ForgotPassword } from '../forgetPassword/forgotPassword.component';
 import { User } from '../../../services/login-google/login-google.service';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     private signInService: GoogleSigninService,
     private ref: ChangeDetectorRef,
     private router: Router,
+    private snackService: SnackbarService,
     private authenticationService: AuthenticationService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
@@ -67,13 +69,13 @@ export class LoginComponent implements OnInit {
           console.log("2")
           this.authenticationService.login(res.email, res.password).subscribe({
             next: (data) => {
-              console.log('Login efetuado com sucesso!');
+              this.snackService.success("Login efetuado com sucesso");
               this.router.navigateByUrl('/home');
             }
           });
         },
         error: (error) => {
-          console.log(error);
+          this.snackService.error("Erro ao logar.");
         },
       });
     })
@@ -132,13 +134,12 @@ export class LoginComponent implements OnInit {
         )
         .subscribe({
           next: (data) => {
-            console.log('Login efetuado com sucesso!');
+            this.snackService.success("Login efetuado com sucesso");
             this.router.navigateByUrl('/home');
           },
           error: (error) => {
-            console.log('login com erro');
-            console.log(error);
-            this.authenticationService.logout();
+            this.snackService.error("Erro ao logar.");
+            // this.authenticationService.logout();
           },
         });
     } else {

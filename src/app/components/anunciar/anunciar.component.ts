@@ -4,6 +4,7 @@ import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarService } from 'src/shared/services/snackbar.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -98,10 +99,11 @@ export class AnunciarComponent implements OnInit {
           console.log(json);
           this.anuncioS.create(json).subscribe({
             next: (res) => {
-              console.log(res);
+              this.snackBar.success('Anúncio cadastrado com sucesso');
+              this.router.navigateByUrl('/home');
             },
             error: (error) => {
-              console.log(error);
+              this.snackBar.error(error.message);
             },
           });
         };

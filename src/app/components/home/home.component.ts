@@ -29,4 +29,8 @@ export class HomeComponent implements OnInit {
   reciverFeedback(array: Anuncio[]) {
     this.arrayAnuncio = array;
   }
+
+  reciverCity(array: Anuncio[]) {
+    this.arrayAnuncio = array;
+  }
 }

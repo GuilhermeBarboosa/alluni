@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AnunciarService } from './anunciar.service';
 import { LocalStorageService } from 'src/shared/services/local-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { SnackbarService } from 'src/shared/services/snackbar.service';
 
 import { Router } from '@angular/router';
+import { AnuncioService } from 'src/app/services/anuncio/anuncio.service';
 
 @Component({
   selector: 'app-anunciar',
@@ -14,27 +14,43 @@ import { Router } from '@angular/router';
 })
 export class AnunciarComponent implements OnInit {
   anunciarForm: FormGroup = Object.create(null);
-  nameFoto = '';
+  nameFoto = null;
+  imgSelecionada = '';
 
   constructor(
-    private anuncioS: AnunciarService,
+    private anuncioService: AnuncioService,
     private localStorage: LocalStorageService,
     private snackBar: SnackbarService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.createFormAnuncio();
 
-    if(localStorage.getItem('@TOKEN') == null){
+    if (localStorage.getItem('@TOKEN') == null) {
       this.snackBar.error('Você precisa estar logado para anunciar!');
       this.router.navigate(['/authentication/login']);
     }
   }
 
-  onChange(){
-    this.nameFoto = this.anunciarForm.value.foto.replace(/^.*\\/, "");
-    this.nameFoto = "Imagem selecionada: " + this.nameFoto;
+  onChange() {
+    this.nameFoto = this.anunciarForm.value.foto.replace(/^.*\\/, '');
+    this.nameFoto = this.nameFoto;
+
+    const fileInput: HTMLInputElement = document.getElementById(
+      'dropzone-file'
+    ) as HTMLInputElement;
+    const file: File | null = fileInput?.files?.[0] || null;
+
+    if (file) {
+      const reader: FileReader = new FileReader();
+      reader.onloadend = () => {
+        const base64data = reader.result as string;
+        this.imgSelecionada = base64data;
+      };
+
+      reader.readAsDataURL(file);
+    }
   }
 
   createFormAnuncio(): void {
@@ -97,7 +113,7 @@ export class AnunciarComponent implements OnInit {
             locacaoID: '1',
           };
           console.log(json);
-          this.anuncioS.create(json).subscribe({
+          this.anuncioService.create(json).subscribe({
             next: (res) => {
               this.snackBar.success('Anúncio cadastrado com sucesso');
               this.router.navigateByUrl('/home');
